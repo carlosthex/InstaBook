@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.instabook">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.InstaBook"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".ui.TelaFeed"
+            android:exported="true" />
+        <activity
+            android:name=".ui.TelaCadastro"
+            android:exported="true" />
+        <activity
+            android:name=".ui.TelaLogin"
+            android:exported="true" />
+    </application>
+
+</manifest>
