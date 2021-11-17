@@ -30,7 +30,7 @@ public class Feed implements Parcelable {
             this.id = json.getString("id");
             this.conteudo = json.getString("conteudo");
             this.dataPostagem = json.getString("dataPostagem");
-            this.autorPostagem = json.getString("autorPostagem");
+            this.autorPostagem = json.getJSONObject("autorPostagem").getString("nome");
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.808" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/editTextSenhaLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
@@ -37,7 +37,7 @@
         app:layout_constraintVertical_bias="0.344" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/botaoLogin"
         android:layout_width="119dp"
         android:layout_height="69dp"
         android:text="@string/Login"
@@ -49,7 +49,7 @@
         app:layout_constraintVertical_bias="0.534" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/editTextEmailLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"

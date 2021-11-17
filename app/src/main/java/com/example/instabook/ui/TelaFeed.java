@@ -42,6 +42,13 @@ public class TelaFeed extends AppCompatActivity implements Response.Listener<JSO
                 "http://ec2-18-116-202-134.us-east-2.compute.amazonaws.com:7777/postagem/",null,
                 this,this);
         queue.add(requisicao);
+        /*JSONObject obj = new JSONObject();
+        try {
+            obj.getJSONObject("autorPostagem").getString("nome");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }*/
+
     }
 
     @Override

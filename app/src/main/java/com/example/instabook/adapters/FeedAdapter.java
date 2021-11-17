@@ -44,8 +44,6 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
         Feed feed = dados.get(position);
         TextView tv = holder.view.findViewById(R.id.tvFeedConteudo);
         tv.setText("Conteudo: "+feed.getConteudo());
-        tv = holder.view.findViewById(R.id.tvFeedId);
-        tv.setText("Id: "+feed.getId());
         tv = holder.view.findViewById(R.id.tvDataPostagem);
         tv.setText("Data: "+feed.getDataPostagem());
         tv = holder.view.findViewById(R.id.tvAutorPostagem);

@@ -4,8 +4,8 @@
     <string name="Digitesuasenha">Digite sua senha</string>
     <string name="Login">Login</string>
     <string name="Cadastrar">Cadastra nova conta</string>
-    <string name="Nome">Nome</string>
-    <string name="Sobrenome">Sobrenome</string>
+    <string name="Nome">Nome e sobrenome</string>
+    <string name="Idade">Idade</string>
     <string name="Email">Email</string>
     <string name="Senha">Senha</string>
     <string name="CadastrarUsuario">Cadastrar</string>

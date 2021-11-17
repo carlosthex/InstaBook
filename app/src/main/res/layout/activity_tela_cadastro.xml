@@ -8,7 +8,7 @@
     tools:context=".ui.TelaCadastro">
 
     <EditText
-        android:id="@+id/editTextTextPersonName6"
+        android:id="@+id/editTextSenha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName5"
+        android:id="@+id/editTextEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
@@ -41,13 +41,13 @@
         app:layout_constraintVertical_bias="0.396" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/editTextIdade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/Sobrenome"
+        android:text="@string/Idade"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -58,7 +58,7 @@
         app:layout_constraintVertical_bias="0.28" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/editTextNS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
@@ -75,7 +75,7 @@
         app:layout_constraintVertical_bias="0.167" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/buttonCadastrar"
         android:layout_width="204dp"
         android:layout_height="63dp"
         android:text="@string/CadastrarUsuario"
