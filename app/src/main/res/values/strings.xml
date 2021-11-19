@@ -9,6 +9,7 @@
     <string name="Email">Email</string>
     <string name="Senha">Senha</string>
     <string name="CadastrarUsuario">Cadastrar</string>
-
+    <string name="Postagem">Digite aqui a sua postagem</string>
+    <string name="Publicar">Publicar</string>
 
 </resources>

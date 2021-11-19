@@ -1,7 +1,12 @@
 package com.example.instabook.model;
 
+import android.os.Build;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.RequiresApi;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -14,38 +19,115 @@ import com.example.instabook.ui.TelaCadastro;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Cadastro extends TelaCadastro{
-    private void cadastraUsuario() {
-        RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-        EditText NS = findViewById(R.id.editTextNS);
-        EditText Idade = findViewById(R.id.editTextIdade);
-        EditText Email = findViewById(R.id.editTextEmail);
-        EditText Senha = findViewById(R.id.editTextSenha);
+import java.util.Objects;
 
-        String NomeP = NS.getText().toString();
-        String IdadeP = Idade.getText().toString();
-        String EmailP = Email.getText().toString();
-        String SenhaP = Senha.getText().toString();
+public class Cadastro implements Parcelable {
+    private String nome;
+    private String idade;
+    private String email;
+    private String senha;
 
-        JSONObject postData = new JSONObject();
+    public Cadastro(String nome, String idade, String email, String senha) {
+        this.nome = nome;
+        this.idade = idade;
+        this.email = email;
+        this.senha = senha;
+    }
+    public Cadastro(JSONObject json) {
+        super();
         try {
-            postData.put("nome", NomeP);
-            postData.put("idade", IdadeP);
-            postData.put("email", EmailP);
-            postData.put("senha", SenhaP);
-
+            this.nome = json.getString("nome");
+            this.idade = json.getString("idade");
+            this.email = json.getString("email");
+            this.senha = json.getString("senha");
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
 
-        JsonObjectRequest requisicao = new JsonObjectRequest(Request.Method.POST,
-                "http://ec2-18-116-202-134.us-east-2.compute.amazonaws.com:7777/usuario", postData,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        Toast.makeText(getApplicationContext(), "Cadastro realizado com sucesso", Toast.LENGTH_SHORT).show();
-                    }
-                },this);
-        queue.add(requisicao);
+    protected Cadastro(Parcel in) {
+        nome = in.readString();
+        idade = in.readString();
+        email = in.readString();
+        senha = in.readString();
+    }
+
+    public static final Parcelable.Creator<Cadastro> CREATOR = new Parcelable.Creator<Cadastro>() {
+        @Override
+        public Cadastro createFromParcel(Parcel in) {
+            return new Cadastro(in);
+        }
+
+        @Override
+        public Cadastro[] newArray(int size) {
+            return new Cadastro[size];
+        }
+    };
+
+    @Override
+    public String toString() {
+        return "nome: "+nome+"\n"+
+                "Idade: "+idade+"\n"+
+                "email: " + email+"\n"+
+                "senha: " + senha+"\n------------\n";
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String id) {
+        this.nome = nome;
+    }
+
+    public String getIdade() {
+        return idade;
+    }
+
+    public void setIdade(String idade) {
+        this.idade = idade;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Cadastro cadastro = (Cadastro) o;
+        return nome == cadastro.nome;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nome);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.Q)
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(this.nome);
+        parcel.writeString(this.idade);
+        parcel.writeString(this.email);
+        parcel.writeString(this.senha);
     }
 }

@@ -3,78 +3,44 @@ package com.example.instabook.ui;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.Volley;
 import com.example.instabook.R;
-import com.example.instabook.adapters.FeedAdapter;
-import com.example.instabook.model.Feed;
+import com.example.instabook.presenter.FeedPresenter;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-import java.util.List;
-
-public class TelaFeed extends AppCompatActivity implements Response.Listener<JSONArray>, Response.ErrorListener {
-
-    private List<Feed> feed = new ArrayList<>();
+public class TelaFeed extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed);
-        mostraFeed();
-    }
 
-    private void mostraFeed() {
-        RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+        FeedPresenter presenterFeed = new FeedPresenter(this);
 
-        JsonArrayRequest requisicao = new JsonArrayRequest(Request.Method.GET,
-                "http://ec2-18-116-202-134.us-east-2.compute.amazonaws.com:7777/postagem/",null,
-                this,this);
-        queue.add(requisicao);
-        /*JSONObject obj = new JSONObject();
-        try {
-            obj.getJSONObject("autorPostagem").getString("nome");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }*/
+        presenterFeed.buscaFeed();
 
-    }
-
-    @Override
-    public void onResponse(JSONArray response) {
-
-        try {
-            for (int x = 0; x <1; x++) {
-                for (int i = 0; i < response.length(); i++) {
-                    feed.add(new Feed(response.getJSONObject(i)));
-                }
+        //botaoProvisório(vai ser pelo botton navigation depois
+        Button botaoGambiarra = findViewById(R.id.buttonProvisório);
+        botaoGambiarra.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent postagem = new Intent(getApplicationContext(), TelaPostagem.class);
+                startActivity(postagem);
             }
-            RecyclerView rv = findViewById(R.id.rvFeed);
-            FeedAdapter adapter = new FeedAdapter(feed);
-            LinearLayoutManager llm =  new LinearLayoutManager(getApplicationContext());
-            rv.setLayoutManager(llm);
-            rv.setAdapter(adapter);
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        });
+        //termina a gambiarra aqui
 
     }
 
-    @Override
-    public void onErrorResponse(VolleyError error) {
-
-
+    //O prepara é acessado no presenter
+    public void preparaRecyclerView(RecyclerView.Adapter adapter){
+        RecyclerView rv = findViewById(R.id.rvFeed);
+        LinearLayoutManager llm =  new LinearLayoutManager(getApplicationContext());
+        rv.setLayoutManager(llm);
+        rv.setAdapter(adapter);
     }
 }

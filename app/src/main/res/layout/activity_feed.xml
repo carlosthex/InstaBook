@@ -15,4 +15,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonProvisório"
+        android:layout_width="136dp"
+        android:layout_height="108dp"
+        android:text="Botao Provisório para testes de postagens"
+        tools:layout_editor_absoluteX="259dp"
+        tools:layout_editor_absoluteY="607dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
