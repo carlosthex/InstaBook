@@ -7,15 +7,18 @@
     android:background="@color/gray"
     tools:context=".ui.TelaCadastro">
 
+
+
     <EditText
         android:id="@+id/editTextSenha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
         android:ems="10"
+        android:hint="Digite a senha"
         android:inputType="textPersonName"
-        android:text="@string/Senha"
         android:textColor="@color/white"
+        android:textColorHint="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,9 +32,10 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
         android:ems="10"
+        android:hint="Digite o seu email"
         android:inputType="textPersonName"
-        android:text="@string/Email"
         android:textColor="@color/white"
+        android:textColorHint="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,22 +44,24 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.396" />
 
+
     <EditText
         android:id="@+id/editTextIdade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
         android:ems="10"
+        android:hint="Digite sua idade"
         android:inputType="textPersonName"
-        android:text="@string/Idade"
         android:textColor="@color/white"
+        android:textColorHint="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.28" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextNS"
+        app:layout_constraintVertical_bias="0.044" />
 
     <EditText
         android:id="@+id/editTextNS"
@@ -63,9 +69,10 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/white"
         android:ems="10"
+        android:hint="Digite seu nome completo"
         android:inputType="textPersonName"
-        android:text="@string/Nome"
         android:textColor="@color/white"
+        android:textColorHint="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,4 +93,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.699" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

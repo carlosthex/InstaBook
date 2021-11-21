@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="Home" android:icon="@drawable/ic_home"
+        android:id="@+id/fragmentHome" />
+
+    <item
+        android:title="Pesquisa" android:icon="@drawable/ic_search"
+        android:id="@+id/fragmentPesquisa" />
+
+    <item
+        android:title="Postar" android:icon="@drawable/ic_add"
+        android:id="@+id/fragmentPost" />
+
+    <item
+        android:title="Perfil" android:icon="@drawable/ic_person"
+        android:id="@+id/fragmentPerfil" />
+</menu>

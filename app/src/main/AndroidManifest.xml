@@ -13,6 +13,10 @@
         android:theme="@style/Theme.InstaBook"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.BottomNavigation"
+            android:exported="true" />
+
+        <activity
             android:name=".ui.SplashInstaBook"
             android:exported="true">
             <intent-filter>
@@ -21,6 +25,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".ui.TelaFeed"
             android:exported="true" />
@@ -29,7 +34,7 @@
             android:exported="true" />
         <activity
             android:name=".ui.TelaLogin"
-            android:exported="true"/>
+            android:exported="true" />
     </application>
 
 </manifest>

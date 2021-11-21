@@ -1,8 +1,6 @@
 package com.example.instabook.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,15 +13,10 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.instabook.R;
-import com.example.instabook.adapters.FeedAdapter;
-import com.example.instabook.model.Feed;
-import com.example.instabook.model.Cadastro;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
