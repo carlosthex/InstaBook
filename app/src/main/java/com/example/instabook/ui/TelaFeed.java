@@ -34,6 +34,7 @@ public class TelaFeed extends AppCompatActivity {
         });
         //termina a gambiarra aqui
 
+        presenterFeed.buscaFeed();
     }
 
     //O prepara é acessado no presenter
