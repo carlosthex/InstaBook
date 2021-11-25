@@ -4,94 +4,124 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray"
+    android:background="@color/white"
     tools:context=".ui.TelaLogin">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/rounded_bottom"
+        android:clickable="true">
 
-    <TextView
-        android:id="@+id/Logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        android:textColor="@color/white"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.141" />
-
-    <Button
-        android:id="@+id/botaoCadastra"
-        android:layout_width="249dp"
-        android:layout_height="70dp"
-        android:text="Cadastrar-se"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.854" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:layout_width="260dp"
-        android:layout_height="60dp"
-        android:backgroundTint="@color/white"
-        android:ems="10"
-        android:hint="Digite sua senha"
-        android:textColorHint="#FFFFFF"
-        android:textSize="24sp"
-        app:boxBackgroundColor="@color/gray"
-        app:boxStrokeColor="#EDEDED"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.436"
-        app:passwordToggleEnabled="true"
-        app:passwordToggleTint="@color/white">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editTextSenhaLogin"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:ems="15"
-            android:inputType="textPassword"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF" />
+            android:gravity="center"
+            android:orientation="vertical">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <ImageView
+                android:id="@+id/Logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="100dp"
+                android:src="@drawable/ic_launcher_foreground" />
 
-    <Button
-        android:id="@+id/botaoLogin"
-        android:layout_width="249dp"
-        android:layout_height="70dp"
-        android:text="@string/Login"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.682" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/editTextEmailLogin"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:hint="@string/Email"
+                app:boxStrokeColor="@color/black"
+                app:hintTextColor="@color/black">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/editTextEmailLogin"
-        android:layout_width="260dp"
-        android:layout_height="60dp"
-        android:backgroundTint="@color/white"
-        android:ems="10"
-        android:hint="Digite seu email"
-        android:inputType="textPersonName"
-        android:textColor="@color/white"
-        android:textColorHint="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.292" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/editTextSenhaLogin"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:hint="@string/Senha"
+                app:boxStrokeColor="@color/black"
+                app:hintTextColor="@color/black">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginRight="20dp"
+                android:text="Esqueceu a senha?" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/botaoCadastra"
+                    android:layout_width="160dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/Cadastrar"
+                    android:textColor="@color/gray"
+                    android:textSize="16sp"
+                    app:backgroundTint="@color/white"
+                    app:cornerRadius="30dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/botaoLogin"
+                    android:layout_width="160dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:text="@string/Login"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:backgroundTint="#1B1B1B"
+                    app:cornerRadius="30dp" />
+            </LinearLayout>
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:layout_marginBottom="50dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Não possui uma conta?"
+                    android:layout_marginRight="5dp"
+                    android:layout_gravity="end"
+                    android:textColor="#8A9EAD"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CADASTRE-SE"
+                    android:layout_gravity="end"
+                    android:textColor="@color/gray"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,6 +17,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.instabook.R;
 import com.example.instabook.ui.TelaCadastro;
+import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -50,11 +51,11 @@ public class TelaLogin extends AppCompatActivity implements Response.ErrorListen
 
     private void autenticarUsuario() {
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-        EditText EmailLogin = findViewById(R.id.editTextEmailLogin);
-        EditText SenhaLogin = findViewById(R.id.editTextSenhaLogin);
+        TextInputLayout EmailLogin = findViewById(R.id.editTextEmailLogin);
+        TextInputLayout SenhaLogin = findViewById(R.id.editTextSenhaLogin);
 
-        String EmailLoginP = EmailLogin.getText().toString();
-        String SenhaLoginP = SenhaLogin.getText().toString();
+        String EmailLoginP = EmailLogin.getEditText().getText().toString();
+        String SenhaLoginP = SenhaLogin.getEditText().getText().toString();
 
         JSONObject postData = new JSONObject();
         try {
