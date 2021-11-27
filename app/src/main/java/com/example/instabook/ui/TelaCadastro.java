@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -16,6 +17,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.instabook.R;
+import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,6 +28,8 @@ public class TelaCadastro extends AppCompatActivity implements Response.ErrorLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_cadastro);
+        getSupportActionBar().hide();;
+        getWindow() .setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         Button botaoCadastro = findViewById(R.id.buttonCadastrar);
         botaoCadastro.setOnClickListener(new View.OnClickListener() {
@@ -38,15 +42,15 @@ public class TelaCadastro extends AppCompatActivity implements Response.ErrorLis
 
     private void cadastraUsuario() {
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-        EditText NS = findViewById(R.id.editTextNS);
-        EditText Idade = findViewById(R.id.editTextIdade);
-        EditText Email = findViewById(R.id.editTextEmail);
-        EditText Senha = findViewById(R.id.editTextSenha);
+        TextInputLayout NS = findViewById(R.id.editTextNS);
+        TextInputLayout Idade = findViewById(R.id.editTextIdade);
+        TextInputLayout Email = findViewById(R.id.editTextEmail);
+        TextInputLayout Senha = findViewById(R.id.editTextSenha);
 
-        String NomeP = NS.getText().toString();
-        String IdadeP = Idade.getText().toString();
-        String EmailP = Email.getText().toString();
-        String SenhaP = Senha.getText().toString();
+        String NomeP = NS.getEditText().getText().toString();
+        String IdadeP = Idade.getEditText().getText().toString();
+        String EmailP = Email.getEditText().getText().toString();
+        String SenhaP = Senha.getEditText().getText().toString();
 
         JSONObject postData = new JSONObject();
         try {

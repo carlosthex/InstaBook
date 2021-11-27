@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".ui.TelaLogin">
+    tools:context=".ui.TelaLogin" >
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/rounded_bottom"
-        android:clickable="true">
+        android:focusableInTouchMode="true"
+        android:clickable="true" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,7 +38,10 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:imeActionLabel="Done"
+                    android:imeOptions="actionDone" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -56,7 +60,10 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textPassword" />
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    android:imeActionLabel="Done"
+                    android:imeOptions="actionDone" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -64,7 +71,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_marginRight="20dp"
-                android:text="Esqueceu a senha?" />
+                android:text="Esqueceu a senha?"
+                android:fontFamily="@font/sourcesanspro_regular"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -80,7 +88,8 @@
                     android:layout_marginRight="5dp"
                     android:text="@string/Cadastrar"
                     android:textColor="@color/gray"
-                    android:textSize="16sp"
+                    android:fontFamily="@font/sourcesanspro_regular"
+                    android:textSize="18sp"
                     app:backgroundTint="@color/white"
                     app:cornerRadius="30dp" />
 
@@ -92,7 +101,8 @@
                     android:layout_marginRight="5dp"
                     android:text="@string/Login"
                     android:textColor="@color/white"
-                    android:textSize="16sp"
+                    android:fontFamily="@font/sourcesanspro_regular"
+                    android:textSize="18sp"
                     app:backgroundTint="#1B1B1B"
                     app:cornerRadius="30dp" />
             </LinearLayout>
@@ -112,6 +122,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Não possui uma conta?"
+                    android:fontFamily="@font/sourcesanspro_regular"
                     android:layout_marginRight="5dp"
                     android:layout_gravity="end"
                     android:textColor="#8A9EAD"/>
@@ -119,6 +130,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="CADASTRE-SE"
+                    android:fontFamily="@font/sourcesanspro_regular"
                     android:layout_gravity="end"
                     android:textColor="@color/gray"/>
             </LinearLayout>
