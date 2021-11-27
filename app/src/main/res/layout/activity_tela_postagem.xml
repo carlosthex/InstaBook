@@ -4,18 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray"
+    android:background="#F5F5DC"
+    android:backgroundTint="@color/secondaryColor"
     tools:context=".ui.TelaPostagem">
 
     <EditText
         android:id="@+id/editTextPostagem"
         android:layout_width="339dp"
         android:layout_height="45dp"
-        android:backgroundTint="@color/white"
+        android:backgroundTint="@color/black"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="@string/Postagem"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,11 +29,12 @@
         android:id="@+id/botaoPublicar"
         android:layout_width="201dp"
         android:layout_height="66dp"
+        android:radius="100dp"
         android:text="@string/Publicar"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.846" />
+        app:layout_constraintVertical_bias="0.846" />/>
 </androidx.constraintlayout.widget.ConstraintLayout>

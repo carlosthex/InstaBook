@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +19,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.instabook.R;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -49,7 +51,8 @@ public class TelaPostagem extends AppCompatActivity implements Response.ErrorLis
         String PostagemP = PP.getText().toString();
 
 
-        SimpleDateFormat formataData = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX");
+        SimpleDateFormat formataData = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ");
+        //formataData.setTimeZone(TimeZone.getTimeZone("GMT"));
         Date data = new Date();
         String dataFormatada = formataData.format(data);
 
@@ -61,7 +64,7 @@ public class TelaPostagem extends AppCompatActivity implements Response.ErrorLis
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
+        Log.d("tag",postData.toString());
         JsonObjectRequest requisicao = new JsonObjectRequest(Request.Method.POST,
                 "http://ec2-18-116-202-134.us-east-2.compute.amazonaws.com:7777/postagem/post", postData,
                 new Response.Listener<JSONObject>() {
