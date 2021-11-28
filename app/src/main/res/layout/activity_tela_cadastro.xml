@@ -4,94 +4,124 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray"
+    android:background="@color/white"
     tools:context=".ui.TelaCadastro">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusableInTouchMode="true"
+        android:clickable="true" >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:background="@drawable/rounded_bottom" >
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:layout_marginTop="100dp"
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:text="Registre-se"
+                android:textColor="@color/gray"
+                android:textSize="36dp" />
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/editTextNS"
+                android:layout_marginTop="100dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:hint="Nome Completo"
+                app:boxStrokeColor="@color/black"
+                app:hintTextColor="@color/black">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:imeActionLabel="Done"
+                    android:imeOptions="actionDone"
+                    android:fontFamily="@font/sourcesanspro_regular" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/editTextIdade"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:hint="Idade"
+                app:boxStrokeColor="@color/black"
+                app:hintTextColor="@color/black">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:imeActionLabel="Done"
+                    android:imeOptions="actionDone"
+                    android:fontFamily="@font/sourcesanspro_regular" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/editTextEmail"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:hint="Email"
+                app:boxStrokeColor="@color/black"
+                app:hintTextColor="@color/black">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:imeActionLabel="Done"
+                    android:imeOptions="actionDone"
+                    android:fontFamily="@font/sourcesanspro_regular" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/editTextSenha"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:autofillHints="password"
+                android:hint="@string/Senha"
+                app:boxStrokeColor="@color/black"
+                app:endIconMode="password_toggle"
+                app:hintTextColor="@color/black">
 
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    android:imeActionLabel="Done"
+                    android:imeOptions="actionDone"
+                    android:fontFamily="@font/sourcesanspro_regular" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/buttonCadastrar"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:text="@string/CadastrarUsuario"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:backgroundTint="#1B1B1B"
+                app:cornerRadius="30dp" />
+        </LinearLayout>
 
-    <EditText
-        android:id="@+id/editTextSenha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/white"
-        android:ems="10"
-        android:hint="Digite a senha"
-        android:inputType="textPersonName"
-        android:textColor="@color/white"
-        android:textColorHint="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/white"
-        android:ems="10"
-        android:hint="Digite o seu email"
-        android:inputType="textPersonName"
-        android:textColor="@color/white"
-        android:textColorHint="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.396" />
-
-
-    <EditText
-        android:id="@+id/editTextIdade"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/white"
-        android:ems="10"
-        android:hint="Digite sua idade"
-        android:inputType="textPersonName"
-        android:textColor="@color/white"
-        android:textColorHint="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNS"
-        app:layout_constraintVertical_bias="0.044" />
-
-    <EditText
-        android:id="@+id/editTextNS"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/white"
-        android:ems="10"
-        android:hint="Digite seu nome completo"
-        android:inputType="textPersonName"
-        android:textColor="@color/white"
-        android:textColorHint="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.167" />
-
-    <Button
-        android:id="@+id/buttonCadastrar"
-        android:layout_width="204dp"
-        android:layout_height="63dp"
-        android:text="@string/CadastrarUsuario"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.699" />
-
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

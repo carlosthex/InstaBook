@@ -26,6 +26,9 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".ui.TelaPostagem"
+            android:exported="true" />
+        <activity
             android:name=".ui.TelaCadastro"
             android:exported="true" />
         <activity
