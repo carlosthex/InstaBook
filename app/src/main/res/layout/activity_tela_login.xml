@@ -107,21 +107,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Não possui uma conta?"
-                    android:layout_marginRight="5dp"
-                    android:layout_gravity="end"
-                    android:textColor="#8A9EAD"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="CADASTRE-SE"
-                    android:layout_gravity="end"
-                    android:textColor="@color/gray"/>
-            </LinearLayout>
+                android:orientation="horizontal"/>
         </RelativeLayout>
     </RelativeLayout>
 

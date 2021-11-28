@@ -3,7 +3,9 @@ package com.example.instabook.ui;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -56,6 +58,20 @@ public class TelaLogin extends AppCompatActivity {
                 TextInputLayout EmailLogin = findViewById(R.id.editTextEmailLogin);
                 TextInputLayout SenhaLogin = findViewById(R.id.editTextSenhaLogin);
                 presenterLogin.autenticarUsuario(EmailLogin, SenhaLogin);
+                //cria uma variavel de preferencia que fica salva no app ate que ela seja alterada
+                SharedPreferences prefs = getSharedPreferences("preferencia",MODE_PRIVATE);
+                // chama o editor de preferencias
+                SharedPreferences.Editor ed = prefs.edit();
+                //cria o campo expecifico
+                ed.putString("email", EmailLogin.getEditText().getText().toString());
+                //aplica a edição
+                ed.apply();
+                //chama aas variaveis para serem utilizadas
+                SharedPreferences pref = getSharedPreferences("preferencia",MODE_PRIVATE);
+                // Teste para ver se o email estava sendo salvo e esta ok
+                String teste = pref.getString("email","nops");
+                //poe a variavel salva nas preferencias na String
+                Log.d("TAG", "autenticarUsuario: "+teste);
             }
         });
     }

@@ -1,6 +1,8 @@
 package com.example.instabook.presenter;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -52,6 +54,7 @@ public class LoginPresenter implements Response.ErrorListener{
                     }
                 },this);
         queue.add(requisicao);
+
     }
 
     @Override
