@@ -16,65 +16,31 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.instabook.R;
+import com.example.instabook.presenter.CadastroPresenter;
+import com.example.instabook.presenter.LoginPresenter;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class TelaCadastro extends AppCompatActivity implements Response.ErrorListener  {
+public class TelaCadastro extends AppCompatActivity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_cadastro);
 
+        CadastroPresenter presenterCadastro = new CadastroPresenter(this);
+
         Button botaoCadastro = findViewById(R.id.buttonCadastrar);
         botaoCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            cadastraUsuario();
+                EditText NS = findViewById(R.id.editTextNS);
+                EditText Idade = findViewById(R.id.editTextIdade);
+                EditText Email = findViewById(R.id.editTextEmail);
+                EditText Senha = findViewById(R.id.editTextSenha);
+                presenterCadastro.cadastrarUsuario(NS,Idade,Email,Senha);
             }
         });
     }
-
-    private void cadastraUsuario() {
-        RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-        EditText NS = findViewById(R.id.editTextNS);
-        EditText Idade = findViewById(R.id.editTextIdade);
-        EditText Email = findViewById(R.id.editTextEmail);
-        EditText Senha = findViewById(R.id.editTextSenha);
-
-        String NomeP = NS.getText().toString();
-        String IdadeP = Idade.getText().toString();
-        String EmailP = Email.getText().toString();
-        String SenhaP = Senha.getText().toString();
-
-        JSONObject postData = new JSONObject();
-        try {
-            postData.put("nome", NomeP);
-            postData.put("idade", IdadeP);
-            postData.put("email", EmailP);
-            postData.put("senha", SenhaP);
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        JsonObjectRequest requisicao = new JsonObjectRequest(Request.Method.POST,
-                "http://ec2-18-116-202-134.us-east-2.compute.amazonaws.com:7777/usuario", postData,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        Toast.makeText(getApplicationContext(), "Cadastro realizado com sucesso", Toast.LENGTH_SHORT).show();
-                        Intent feed = new Intent(getApplicationContext(), TelaFeed.class);
-                        startActivity(feed);
-                    }
-                },this);
-        queue.add(requisicao);
-    }
-
-    @Override
-    public void onErrorResponse(VolleyError error) {
-        Toast.makeText(getApplicationContext(), "Erro ao realizar o cadastro", Toast.LENGTH_SHORT).show();
-    }
 }
-

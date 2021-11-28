@@ -8,7 +8,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.instabook.adapters.FeedAdapter;
 import com.example.instabook.model.Feed;
-import com.example.instabook.ui.TelaFeed;
+import com.example.instabook.ui.fragments.FragmentHome;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -20,14 +20,14 @@ public class FeedPresenter implements Response.Listener<JSONArray>,
         Response.ErrorListener {
 
     private List<Feed> feed = new ArrayList<>();
-    private TelaFeed tela;
+    private FragmentHome tela;
 
-    public FeedPresenter(TelaFeed act) {
+    public FeedPresenter(FragmentHome act) {
         this.tela = act;
     }
 
     public void buscaFeed() {
-        RequestQueue queue = Volley.newRequestQueue(tela.getApplicationContext());
+        RequestQueue queue = Volley.newRequestQueue(tela.getActivity().getApplicationContext());
 
         JsonArrayRequest requisicao = new JsonArrayRequest(Request.Method.GET,
                 "http://ec2-18-116-202-134.us-east-2.compute.amazonaws.com:7777/postagem/",null,
