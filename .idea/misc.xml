@@ -14,10 +14,6 @@
         <entry key="..\:/Users/felip/Documents/Dev/InstaBook/app/src/main/res/drawable/rounded_button.xml" value="0.34479166666666666" />
         <entry key="..\:/Users/felip/Documents/Dev/InstaBook/app/src/main/res/layout/activity_tela_cadastro.xml" value="0.325" />
         <entry key="..\:/Users/felip/Documents/Dev/InstaBook/app/src/main/res/layout/activity_tela_login.xml" value="0.33" />
-        <entry key="..\:/Users/ferna/AndroidStudioProjects/InstaBook - Intavel - Tela Postagem/app/src/main/res/layout/activity_tela_postagem.xml" value="0.2115036231884058" />
-        <entry key="..\:/Users/ferna/AndroidStudioProjects/InstaBook - Intavel - Tela Postagem/app/src/main/res/layout/fragment_home.xml" value="0.20652173913043478" />
-        <entry key="..\:/Users/ferna/AndroidStudioProjects/InstaBook - Intavel - Tela Postagem/app/src/main/res/layout/fragment_pesquisa.xml" value="0.20652173913043478" />
-        <entry key="..\:/Users/ferna/AndroidStudioProjects/InstaBook - Intavel - Tela Postagem/app/src/main/res/layout/fragment_post.xml" value="0.2115036231884058" />
         <entry key="..\:/Users/ferna/AndroidStudioProjects/InstaBook/app/src/main/res/layout/activity_bottomNavigation.xml" value="0.11676798378926039" />
         <entry key="..\:/Users/ferna/AndroidStudioProjects/InstaBook/app/src/main/res/layout/activity_bottom_navigatio.xml" value="0.1213768115942029" />
         <entry key="..\:/Users/ferna/AndroidStudioProjects/InstaBook/app/src/main/res/layout/activity_bottom_navigation.xml" value="0.13020833333333334" />
@@ -39,6 +35,7 @@
         <entry key="..\:/Users/thiag/AndroidStudioProjects/InstaBook/app/src/main/res/layout/activity_splash_insta_book.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/thiag/AndroidStudioProjects/InstaBook/app/src/main/res/layout/activity_tela_login.xml" value="0.2" />
         <entry key="..\:/Users/thiag/AndroidStudioProjects/InstaBook/app/src/main/res/layout/activity_tela_postagem.xml" value="0.25" />
+        <entry key="..\:/Users/thiag/AndroidStudioProjects/InstaBook/app/src/main/res/layout/fragment_profile.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/thiag/AndroidStudioProjects/InstaBook/app/src/main/res/menu/bottom_menu.xml" value="0.20416666666666666" />
       </map>
     </option>
