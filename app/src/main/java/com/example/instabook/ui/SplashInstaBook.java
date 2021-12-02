@@ -15,8 +15,6 @@ public class SplashInstaBook extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_insta_book);
-        getSupportActionBar().hide();;
-        getWindow() .setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
