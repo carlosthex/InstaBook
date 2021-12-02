@@ -18,7 +18,6 @@ public class BottomNavigation extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_navigation);
-        getSupportActionBar().hide();
 
         BottomNavigationView bnv = findViewById(R.id.bottomNavigationView);
         NavHostFragment nhf = (NavHostFragment)getSupportFragmentManager().findFragmentById(R.id.fragmentContainerView);
