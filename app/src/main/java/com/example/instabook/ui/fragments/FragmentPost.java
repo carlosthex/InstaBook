@@ -76,8 +76,6 @@ public class FragmentPost extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_post, container, false);
         btPost = (Button) view.findViewById(R.id.botaoPublicar);
-        SharedPreferences pref1 = getActivity().getSharedPreferences("preferencia", Context.MODE_PRIVATE);
-        Toast.makeText(getActivity().getApplicationContext(), pref1.getString("email","Email não existente"), Toast.LENGTH_SHORT).show();
         btPost.setOnClickListener(this);
 
         return view;

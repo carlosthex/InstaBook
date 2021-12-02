@@ -9,18 +9,24 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.instabook.R;
 import com.example.instabook.presenter.PerfilPresenter;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link FragmentPerfil#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentPerfil extends Fragment {
+public class FragmentPerfil extends Fragment implements View.OnClickListener {
 
     PerfilPresenter presenterPerfil = new PerfilPresenter(this);
+    Button btLogout;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -67,7 +73,8 @@ public class FragmentPerfil extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
-
+        btLogout = (Button) view.findViewById(R.id.buttonLogout);
+        btLogout.setOnClickListener(this);
         presenterPerfil.buscaPerfil();
 
         return view;
@@ -78,6 +85,11 @@ public class FragmentPerfil extends Fragment {
         LinearLayoutManager llm =  new LinearLayoutManager(getActivity().getApplicationContext());
         rv.setLayoutManager(llm);
         rv.setAdapter(adapter);
+    }
+
+    @Override
+    public void onClick(View view) {
+        Toast.makeText(getActivity().getApplicationContext(), "Apertou pra deslogar", Toast.LENGTH_SHORT).show();
     }
 
 }
