@@ -1,5 +1,9 @@
 package com.example.instabook.ui.fragments;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,6 +18,8 @@ import android.widget.Toast;
 
 import com.example.instabook.R;
 import com.example.instabook.presenter.PerfilPresenter;
+import com.example.instabook.ui.BottomNavigation;
+import com.example.instabook.ui.TelaLogin;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -24,6 +30,7 @@ import java.util.Date;
  * create an instance of this fragment.
  */
 public class FragmentPerfil extends Fragment implements View.OnClickListener {
+
 
     PerfilPresenter presenterPerfil = new PerfilPresenter(this);
     Button btLogout;
@@ -62,9 +69,11 @@ public class FragmentPerfil extends Fragment implements View.OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
+
         }
     }
 
@@ -89,6 +98,12 @@ public class FragmentPerfil extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
+        SharedPreferences pref = getActivity().getSharedPreferences("preferencia",MODE_PRIVATE);
+        SharedPreferences.Editor ed = pref.edit();
+        ed.putString("senha","");
+        ed.apply();
+        Intent telaLogin = new Intent(getActivity().getApplicationContext(), TelaLogin.class);
+        getActivity().startActivity(telaLogin);
         Toast.makeText(getActivity().getApplicationContext(), "Apertou pra deslogar", Toast.LENGTH_SHORT).show();
     }
 
