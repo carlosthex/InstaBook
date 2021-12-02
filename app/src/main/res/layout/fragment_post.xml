@@ -4,17 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F5F5DC"
+    android:backgroundTint="@color/secondaryColor"
     tools:context=".ui.fragments.FragmentPost">
 
+        <EditText
+            android:id="@+id/editTextPostagem"
+            android:layout_width="339dp"
+            android:layout_height="45dp"
+            android:backgroundTint="@color/black"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="@string/Postagem"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.237" />
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Fragmento Post"
-            android:textSize="25dp"
+        <Button
+            android:id="@+id/botaoPublicar"
+            android:layout_width="201dp"
+            android:layout_height="66dp"
+            android:radius="100dp"
+            android:text="@string/Publicar"
+            android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.846" />/>
 </androidx.constraintlayout.widget.ConstraintLayout>

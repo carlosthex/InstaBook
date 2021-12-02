@@ -3,17 +3,28 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Dinopc/AndroidStudioProjects/InstaBook/app/src/main/res/layout/activity_bottom_navigation.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Dinopc/AndroidStudioProjects/InstaBook/app/src/main/res/layout/activity_feed.xml" value="0.33" />
         <entry key="..\:/Users/Dinopc/AndroidStudioProjects/InstaBook/app/src/main/res/layout/activity_splash_insta_book.xml" value="0.19067028985507245" />
         <entry key="..\:/Users/Dinopc/AndroidStudioProjects/InstaBook/app/src/main/res/layout/activity_tela_cadastro.xml" value="0.28306159420289856" />
         <entry key="..\:/Users/Dinopc/AndroidStudioProjects/InstaBook/app/src/main/res/layout/activity_tela_login.xml" value="0.25" />
         <entry key="..\:/Users/Dinopc/AndroidStudioProjects/InstaBook/app/src/main/res/layout/activity_tela_postagem.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/Dinopc/AndroidStudioProjects/InstaBook/app/src/main/res/layout/feed_layout.xml" value="0.25" />
+        <entry key="..\:/Users/Dinopc/AndroidStudioProjects/InstaBook/app/src/main/res/layout/fragment_home.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/Dinopc/AndroidStudioProjects/InstaBook/app/src/main/res/layout/fragment_pesquisa.xml" value="0.25" />
+        <entry key="..\:/Users/Dinopc/AndroidStudioProjects/InstaBook/app/src/main/res/layout/fragment_post.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/Dinopc/AndroidStudioProjects/InstaBook/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
+        <entry key="..\:/Users/Dinopc/AndroidStudioProjects/InstaBook/app/src/main/res/layout/perfil_layout.xml" value="0.5" />
+        <entry key="..\:/Users/Dinopc/AndroidStudioProjects/InstaBook/app/src/main/res/layout/pesquisa_layout.xml" value="0.15625" />
         <entry key="..\:/Users/felip/Documents/Dev/InstaBook/app/src/main/res/drawable/rounded_bottom.xml" value="0.5661458333333333" />
         <entry key="..\:/Users/felip/Documents/Dev/InstaBook/app/src/main/res/drawable/rounded_buttom.xml" value="0.34479166666666666" />
         <entry key="..\:/Users/felip/Documents/Dev/InstaBook/app/src/main/res/drawable/rounded_button.xml" value="0.34479166666666666" />
         <entry key="..\:/Users/felip/Documents/Dev/InstaBook/app/src/main/res/layout/activity_tela_cadastro.xml" value="0.325" />
         <entry key="..\:/Users/felip/Documents/Dev/InstaBook/app/src/main/res/layout/activity_tela_login.xml" value="0.33" />
+        <entry key="..\:/Users/ferna/AndroidStudioProjects/InstaBook - Intavel - Tela Postagem/app/src/main/res/layout/activity_tela_postagem.xml" value="0.2115036231884058" />
+        <entry key="..\:/Users/ferna/AndroidStudioProjects/InstaBook - Intavel - Tela Postagem/app/src/main/res/layout/fragment_home.xml" value="0.20652173913043478" />
+        <entry key="..\:/Users/ferna/AndroidStudioProjects/InstaBook - Intavel - Tela Postagem/app/src/main/res/layout/fragment_pesquisa.xml" value="0.20652173913043478" />
+        <entry key="..\:/Users/ferna/AndroidStudioProjects/InstaBook - Intavel - Tela Postagem/app/src/main/res/layout/fragment_post.xml" value="0.2115036231884058" />
         <entry key="..\:/Users/ferna/AndroidStudioProjects/InstaBook/app/src/main/res/layout/activity_bottomNavigation.xml" value="0.11676798378926039" />
         <entry key="..\:/Users/ferna/AndroidStudioProjects/InstaBook/app/src/main/res/layout/activity_bottom_navigatio.xml" value="0.1213768115942029" />
         <entry key="..\:/Users/ferna/AndroidStudioProjects/InstaBook/app/src/main/res/layout/activity_bottom_navigation.xml" value="0.13020833333333334" />

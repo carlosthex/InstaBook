@@ -5,13 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".ui.TelaLogin" >
+    tools:context=".ui.TelaLogin">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/rounded_bottom"
-        android:focusableInTouchMode="true"
-        android:clickable="true" >
+        android:clickable="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,11 +36,9 @@
                 app:hintTextColor="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/preferenciaEmail"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:singleLine="true"
-                    android:imeActionLabel="Done"
-                    android:imeOptions="actionDone" />
+                    android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -58,12 +55,10 @@
                 app:hintTextColor="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/preferenciaSenha"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textPassword"
-                    android:singleLine="true"
-                    android:imeActionLabel="Done"
-                    android:imeOptions="actionDone" />
+                    android:inputType="textPassword" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
@@ -71,8 +66,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_marginRight="20dp"
-                android:text="Esqueceu a senha?"
-                android:fontFamily="@font/sourcesanspro_regular"/>
+                android:text="Esqueceu a senha?" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -88,8 +82,7 @@
                     android:layout_marginRight="5dp"
                     android:text="@string/Cadastrar"
                     android:textColor="@color/gray"
-                    android:fontFamily="@font/sourcesanspro_regular"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     app:backgroundTint="@color/white"
                     app:cornerRadius="30dp" />
 
@@ -101,8 +94,7 @@
                     android:layout_marginRight="5dp"
                     android:text="@string/Login"
                     android:textColor="@color/white"
-                    android:fontFamily="@font/sourcesanspro_regular"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     app:backgroundTint="#1B1B1B"
                     app:cornerRadius="30dp" />
             </LinearLayout>
@@ -117,23 +109,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Não possui uma conta?"
-                    android:fontFamily="@font/sourcesanspro_regular"
-                    android:layout_marginRight="5dp"
-                    android:layout_gravity="end"
-                    android:textColor="#8A9EAD"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="CADASTRE-SE"
-                    android:fontFamily="@font/sourcesanspro_regular"
-                    android:layout_gravity="end"
-                    android:textColor="@color/gray"/>
-            </LinearLayout>
+                android:orientation="horizontal"/>
         </RelativeLayout>
     </RelativeLayout>
 

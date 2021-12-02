@@ -7,15 +7,26 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.instabook.R;
+import com.example.instabook.presenter.PostPresenter;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link FragmentPost#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentPost extends Fragment {
+public class FragmentPost extends Fragment implements View.OnClickListener {
+
+    //instancia presenter
+    PostPresenter presenterPost = new PostPresenter(this);
+
+    Button btPost;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,6 +72,21 @@ public class FragmentPost extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_post, container, false);
+        View view = inflater.inflate(R.layout.fragment_post, container, false);
+
+        btPost = (Button) view.findViewById(R.id.botaoPublicar);
+        btPost.setOnClickListener(this);
+
+        return view;
+    }
+
+    @Override
+    public void onClick(View view) {
+        SimpleDateFormat formataData = new SimpleDateFormat("yyyy-MM-dd HH:mm:SS.X");
+        Date data = new Date();
+        String dataFormatada = formataData.format(data);
+        Toast.makeText(getActivity().getApplicationContext(),
+                "Data formatada " + dataFormatada, Toast.LENGTH_SHORT).show();
+        presenterPost.publicaPostagem();
     }
 }
