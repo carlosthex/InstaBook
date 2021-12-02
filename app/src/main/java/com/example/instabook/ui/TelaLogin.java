@@ -38,9 +38,6 @@ public class TelaLogin extends AppCompatActivity {
         getSupportActionBar().hide();;
         getWindow() .setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        getSupportActionBar().hide();;
-        getWindow() .setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         LoginPresenter presenterLogin = new LoginPresenter(this);
 
         TextInputEditText tvEmail = findViewById(R.id.preferenciaEmail);

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -18,6 +19,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.instabook.R;
 import com.example.instabook.presenter.CadastroPresenter;
 import com.example.instabook.presenter.LoginPresenter;
+import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,6 +30,8 @@ public class TelaCadastro extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_cadastro);
+        getSupportActionBar().hide();;
+        getWindow() .setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         CadastroPresenter presenterCadastro = new CadastroPresenter(this);
 
@@ -35,11 +39,12 @@ public class TelaCadastro extends AppCompatActivity  {
         botaoCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EditText NS = findViewById(R.id.editTextNS);
-                EditText Idade = findViewById(R.id.editTextIdade);
-                EditText Email = findViewById(R.id.editTextEmail);
-                EditText Senha = findViewById(R.id.editTextSenha);
-                presenterCadastro.cadastrarUsuario(NS,Idade,Email,Senha);
+                TextInputLayout NS = findViewById(R.id.editTextNS);
+                TextInputLayout Idade = findViewById(R.id.editTextIdade);
+                TextInputLayout Email = findViewById(R.id.editTextEmail);
+                TextInputLayout Senha = findViewById(R.id.editTextSenha);
+
+                presenterCadastro.cadastrarUsuario(NS.getEditText(),Idade.getEditText(),Email.getEditText(),Senha.getEditText());
             }
         });
     }

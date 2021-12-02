@@ -1,6 +1,10 @@
 package com.example.instabook.presenter;
 
+import static android.content.Context.MODE_PRIVATE;
+
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -45,6 +49,30 @@ public class LoginPresenter implements Response.ErrorListener{
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
+                        //chama as preferencias
+                        SharedPreferences prefs = tela.getSharedPreferences("preferencia", MODE_PRIVATE);
+                        //chama o editor de preferencias
+                        SharedPreferences.Editor ed = prefs.edit();
+                        try {
+                            //procura na response que vem no onResponse o valor id, e coloca na string userId
+                            JSONObject teste = response;
+                            String userId = response.getString("id");
+                            //procura na response que vem no onResponse o valor nome, e coloca na string username
+                            String username = response.getString("nome");
+                            //procura na response que vem no onResponse o valor idade, e coloca na string age
+                            String age = response.getString("idade");
+                            //coloca eles no editor de preferencias
+                            ed.putString("id", userId);
+                            ed.putString("nome", username);
+                            ed.putString("idade", age);
+                            //salva tudo
+                            ed.apply();
+                        } catch (JSONException e) {
+                            //Se der erro ao encontrar o valor na response faz um toast
+                            Toast.makeText(tela.getApplicationContext(), "Ocorreu algum erro ao recuperar dados do usuário",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+
                         Toast.makeText(tela.getApplicationContext(), "Autenticação realizada com sucesso",
                                 Toast.LENGTH_SHORT).show();
                         Intent bottomNav = new Intent(tela.getApplicationContext(), BottomNavigation.class);
