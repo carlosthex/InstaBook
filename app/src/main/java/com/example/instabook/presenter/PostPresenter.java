@@ -1,5 +1,7 @@
 package com.example.instabook.presenter;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -11,6 +13,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.instabook.R;
+import com.example.instabook.model.Cadastro;
 import com.example.instabook.ui.BottomNavigation;
 import com.example.instabook.ui.fragments.FragmentHome;
 import com.example.instabook.ui.fragments.FragmentPost;
@@ -20,6 +23,7 @@ import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 import java.util.TimeZone;
 
 public class PostPresenter implements Response.ErrorListener {
@@ -30,23 +34,32 @@ public class PostPresenter implements Response.ErrorListener {
         this.tela = act;
     }
 
+
     public void publicaPostagem() {
         RequestQueue queue = Volley.newRequestQueue(tela.getActivity().getApplicationContext());
         EditText PP = tela.getActivity().findViewById(R.id.editTextPostagem);
 
         String PostagemP = PP.getText().toString();
+        SharedPreferences pref = tela.getActivity().getSharedPreferences("preferencia", Context.MODE_PRIVATE);
+        String emailPreferencia = pref.getString("email","n");
 
         SimpleDateFormat formataData = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX");
         formataData.setTimeZone(TimeZone.getTimeZone("GMT"));
         Date data = new Date();
         String dataFormatada = formataData.format(data);
 
+        JSONObject emailAutor = new JSONObject();
+        try {
+            emailAutor.put("email", emailPreferencia);
+                    }catch (JSONException e){
+            e.printStackTrace();
+        }
         JSONObject postData = new JSONObject();
         try {
             postData.put("conteudo", PostagemP);
             postData.put("dataPostagem", dataFormatada);
-
-        } catch (JSONException e) {
+            postData.put("autorPostagem",emailAutor);
+                    } catch (JSONException e) {
             e.printStackTrace();
         }
         Log.d("tag",postData.toString());

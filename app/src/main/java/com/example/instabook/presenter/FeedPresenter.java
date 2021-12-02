@@ -1,5 +1,8 @@
 package com.example.instabook.presenter;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -26,7 +29,10 @@ public class FeedPresenter implements Response.Listener<JSONArray>,
         this.tela = act;
     }
 
+
     public void buscaFeed() {
+        SharedPreferences o = tela.getActivity().getSharedPreferences("preferencia",Context.MODE_PRIVATE);
+        String p = o.getString("email","");
         RequestQueue queue = Volley.newRequestQueue(tela.getActivity().getApplicationContext());
 
         JsonArrayRequest requisicao = new JsonArrayRequest(Request.Method.GET,

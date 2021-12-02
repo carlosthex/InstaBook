@@ -67,9 +67,9 @@ public class Cadastro implements Parcelable {
     @Override
     public String toString() {
         return "nome: "+nome+"\n"+
-                "Idade: "+idade+"\n"+
+                "idade: "+idade+"\n"+
                 "email: " + email+"\n"+
-                "senha: " + senha+"\n------------\n";
+                "senha: " + senha;
     }
 
     public String getNome() {

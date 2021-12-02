@@ -1,6 +1,8 @@
 package com.example.instabook.presenter;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -23,6 +25,8 @@ public class CadastroPresenter implements Response.ErrorListener{
     public CadastroPresenter(TelaCadastro act) {
         this.tela = act;
     }
+    SharedPreferences p = tela.getSharedPreferences("preferencia", Context.MODE_PRIVATE);
+    String f= p.getString("email","n");
 
     public void cadastrarUsuario(EditText NS, EditText Idade,EditText Email,EditText Senha) {
         RequestQueue queue = Volley.newRequestQueue(tela.getApplicationContext());
