@@ -1,5 +1,7 @@
 package com.example.instabook.presenter;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -14,6 +16,7 @@ import com.example.instabook.R;
 import com.example.instabook.ui.BottomNavigation;
 import com.example.instabook.ui.fragments.FragmentHome;
 import com.example.instabook.ui.fragments.FragmentPost;
+import com.example.instabook.model.Perfil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -36,15 +39,26 @@ public class PostPresenter implements Response.ErrorListener {
 
         String PostagemP = PP.getText().toString();
 
+        SharedPreferences pref1 = tela.getActivity().getSharedPreferences("preferencia", Context.MODE_PRIVATE);
+        String Email = pref1.getString("email","Email não existente");
+
         SimpleDateFormat formataData = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX");
         formataData.setTimeZone(TimeZone.getTimeZone("GMT"));
         Date data = new Date();
         String dataFormatada = formataData.format(data);
 
+        JSONObject autor = new JSONObject();
+        try {
+            autor.put("email", Email);
+        } catch (JSONException e){
+            e.printStackTrace();
+        }
+
         JSONObject postData = new JSONObject();
         try {
             postData.put("conteudo", PostagemP);
             postData.put("dataPostagem", dataFormatada);
+            postData.put("autorPostagem", autor);
 
         } catch (JSONException e) {
             e.printStackTrace();

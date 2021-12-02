@@ -12,19 +12,19 @@ import org.json.JSONObject;
 import java.util.Date;
 import java.util.Objects;
 
-public class Feed implements Parcelable {
+public class Perfil implements Parcelable {
     private String id;
     private String conteudo;
     private String dataPostagem;
     private String autorPostagem;
 
-    public Feed(String id, String conteudo, String dataPostagem, String autorPostagem) {
+    public Perfil(String id, String conteudo, String dataPostagem, String autorPostagem) {
         this.id = id;
         this.conteudo = conteudo;
         this.dataPostagem = dataPostagem;
         this.autorPostagem = autorPostagem;
     }
-    public Feed(JSONObject json) {
+    public Perfil(JSONObject json) {
         super();
         try {
             this.id = json.getString("id");
@@ -36,22 +36,22 @@ public class Feed implements Parcelable {
         }
     }
 
-    protected Feed(Parcel in) {
+    protected Perfil(Parcel in) {
         id = in.readString();
         conteudo = in.readString();
         dataPostagem = in.readString();
         autorPostagem = in.readString();
     }
 
-    public static final Parcelable.Creator<Feed> CREATOR = new Parcelable.Creator<Feed>() {
+    public static final Parcelable.Creator<Perfil> CREATOR = new Parcelable.Creator<Perfil>() {
         @Override
-        public Feed createFromParcel(Parcel in) {
-            return new Feed(in);
+        public Perfil createFromParcel(Parcel in) {
+            return new Perfil(in);
         }
 
         @Override
-        public Feed[] newArray(int size) {
-            return new Feed[size];
+        public Perfil[] newArray(int size) {
+            return new Perfil[size];
         }
     };
 
@@ -99,8 +99,8 @@ public class Feed implements Parcelable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Feed feed = (Feed) o;
-        return id == feed.id;
+        Perfil perfil = (Perfil) o;
+        return id == perfil.id;
     }
 
     @Override

@@ -3,19 +3,33 @@ package com.example.instabook.ui.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.instabook.R;
+
+import com.example.instabook.presenter.PesquisaPresenter;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link FragmentPesquisa#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentPesquisa extends Fragment {
+public class FragmentPesquisa extends Fragment implements View.OnClickListener{
+
+    PesquisaPresenter presenterPesquisa = new PesquisaPresenter(this);
+
+    Button btPesquisa;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,6 +75,28 @@ public class FragmentPesquisa extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pesquisa, container, false);
+        View view = inflater.inflate(R.layout.fragment_pesquisa, container, false);
+
+        btPesquisa = (Button) view.findViewById(R.id.buttonPesquisa);
+        btPesquisa.setOnClickListener(this);
+
+        return view;
+    }
+
+    @Override
+    public void onClick(View view) {
+        SimpleDateFormat formataData = new SimpleDateFormat("yyyy-MM-dd HH:mm:SS.X");
+        Date data = new Date();
+        String dataFormatada = formataData.format(data);
+        Toast.makeText(getActivity().getApplicationContext(),
+                "Data formatada " + dataFormatada, Toast.LENGTH_SHORT).show();
+        presenterPesquisa.buscaPesquisa();
+    }
+
+    public void preparaRecyclerView(RecyclerView.Adapter adapter){
+        RecyclerView rv = getActivity().findViewById(R.id.rvPesquisa);
+        LinearLayoutManager llm =  new LinearLayoutManager(getActivity().getApplicationContext());
+        rv.setLayoutManager(llm);
+        rv.setAdapter(adapter);
     }
 }
