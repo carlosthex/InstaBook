@@ -2,6 +2,7 @@ package com.example.instabook.presenter;;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.widget.Button;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -9,6 +10,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.instabook.R;
 import com.example.instabook.adapters.FeedAdapter;
 import com.example.instabook.adapters.PerfilAdapter;
 import com.example.instabook.model.Feed;
@@ -37,6 +39,7 @@ public class PerfilPresenter implements Response.Listener<JSONArray>,
 
     public void buscaPerfil() {
         RequestQueue queue = Volley.newRequestQueue(tela.getActivity().getApplicationContext());
+
 
         SharedPreferences pref1 = tela.getActivity().getSharedPreferences("preferencia", Context.MODE_PRIVATE);
         String Email = pref1.getString("email","Email não existente");
