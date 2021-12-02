@@ -30,8 +30,6 @@ public class TelaCadastro extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_cadastro);
-        getSupportActionBar().hide();;
-        getWindow() .setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         CadastroPresenter presenterCadastro = new CadastroPresenter(this);
 

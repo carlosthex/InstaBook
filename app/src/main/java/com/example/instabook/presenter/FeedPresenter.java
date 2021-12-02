@@ -1,14 +1,20 @@
 package com.example.instabook.presenter;
 
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.instabook.R;
 import com.example.instabook.adapters.FeedAdapter;
 import com.example.instabook.model.Feed;
 import com.example.instabook.ui.fragments.FragmentHome;
+import com.google.android.material.progressindicator.CircularProgressIndicator;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,6 +33,8 @@ public class FeedPresenter implements Response.Listener<JSONArray>,
     }
 
     public void buscaFeed() {
+        ProgressBar loader = tela.getActivity().findViewById(R.id.loading);
+        loader.setVisibility(View.VISIBLE);
         RequestQueue queue = Volley.newRequestQueue(tela.getActivity().getApplicationContext());
 
         JsonArrayRequest requisicao = new JsonArrayRequest(Request.Method.GET,
@@ -37,10 +45,11 @@ public class FeedPresenter implements Response.Listener<JSONArray>,
 
     @Override
     public void onResponse(JSONArray response) {
+        ProgressBar loader = tela.getActivity().findViewById(R.id.loading);
         feed.clear();
         try {
             for (int x = 0; x <1; x++) {
-                for (int i = 0; i < response.length(); i++) {
+                for (int i = response.length()-1; i > 0; i--) {
                     feed.add(new Feed(response.getJSONObject(i)));
                 }
             }
@@ -50,6 +59,7 @@ public class FeedPresenter implements Response.Listener<JSONArray>,
         catch (JSONException e) {
             e.printStackTrace();
         }
+        loader.setVisibility(View.GONE);
     }
 
     @Override

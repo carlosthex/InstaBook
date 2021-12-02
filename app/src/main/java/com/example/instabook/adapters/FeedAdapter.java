@@ -11,7 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.instabook.R;
 import com.example.instabook.model.Feed;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+import java.util.TimeZone;
 
 public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
 
@@ -43,11 +49,21 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull FeedAdapter.ViewHolder holder, int position) {
         Feed feed = dados.get(position);
         TextView tv = holder.view.findViewById(R.id.tvFeedConteudo);
-        tv.setText("Conteudo: "+feed.getConteudo());
+        tv.setText(feed.getConteudo());
         tv = holder.view.findViewById(R.id.tvDataPostagem);
-        tv.setText("Data: "+feed.getDataPostagem());
+
+        String dtStart = feed.getDataPostagem();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX");
+        Locale.setDefault(new Locale("pt", "BR"));
+        try {
+            tv.setText(DateFormat.getDateInstance(DateFormat.FULL).format(format.parse(dtStart)));
+        } catch (ParseException e) {
+            tv.setText("data indisponível");
+            e.printStackTrace();
+        }
+
         tv = holder.view.findViewById(R.id.tvAutorPostagem);
-        tv.setText("Autor: "+feed.getAutorPostagem());
+        tv.setText((feed.getAutorPostagem() != null) ? feed.getAutorPostagem() : "autor desconhecido");
 
 
     }
