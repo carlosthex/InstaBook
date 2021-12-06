@@ -2,7 +2,10 @@ package com.example.instabook.presenter;;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -30,6 +33,7 @@ public class PerfilPresenter implements Response.Listener<JSONArray>,
 
     private List<Perfil> perfil = new ArrayList<>();
     private FragmentPerfil tela;
+    private TextView tvPosts;
 
     public PerfilPresenter(FragmentPerfil act) {
         this.tela = act;
@@ -53,7 +57,10 @@ public class PerfilPresenter implements Response.Listener<JSONArray>,
 
     @Override
     public void onResponse(JSONArray response) {
+        ProgressBar loader = tela.getActivity().findViewById(R.id.loadingProfile);
         perfil.clear();
+        tvPosts = tela.getView().findViewById(R.id.tvCountProfile);
+        tvPosts.setText(response.length() + "");
         try {
             for (int x = 0; x <1; x++) {
                 for (int i = 0; i < response.length(); i++) {
@@ -66,6 +73,7 @@ public class PerfilPresenter implements Response.Listener<JSONArray>,
         catch (JSONException e) {
             e.printStackTrace();
         }
+        loader.setVisibility(View.GONE);
     }
 
     @Override

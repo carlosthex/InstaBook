@@ -65,7 +65,6 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
         tv = holder.view.findViewById(R.id.tvAutorPostagem);
         tv.setText((feed.getAutorPostagem() != null) ? feed.getAutorPostagem() : "autor desconhecido");
 
-
     }
 
     @Override
