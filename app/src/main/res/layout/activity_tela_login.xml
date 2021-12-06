@@ -22,7 +22,7 @@
                 android:id="@+id/imageView"
                 android:layout_width="281dp"
                 android:layout_height="213dp"
-                app:srcCompat="@drawable/_03" />
+                app:srcCompat="@drawable/_01__1_" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/editTextEmailLogin"
