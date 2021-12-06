@@ -10,26 +10,130 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/buttonLogout"
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:text="Deslogar"
-            android:textColor="@color/white"
-            android:textSize="16sp"
-            app:backgroundTint="#1B1B1B"
-            app:cornerRadius="30dp" />
+            android:layout_height="wrap_content">
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="160dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/_02" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/buttonLogout"
+                    android:layout_width="56dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_marginRight="10dp"
+                    android:scaleType="fitCenter"
+                    app:icon="@drawable/logout"
+                    app:iconTint="#ffffb0"
+                    app:iconSize="30dp"
+                    app:backgroundTint="#ca9b52"
+                    app:cornerRadius="7dp" />
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/tvNameProfile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nome"
+                        android:textSize="18dp"
+                        android:fontFamily="@font/sourcesanspro_regular"
+                        android:textColor="#484D54"
+                        android:textAppearance="?attr/textAppearanceBody2" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=", "
+                        android:textSize="18dp"
+                        android:fontFamily="@font/sourcesanspro_regular"
+                        android:textColor="#484D54"
+                        android:textAppearance="?attr/textAppearanceBody2" />
+                    <TextView
+                        android:id="@+id/tvAgeProfile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Idade"
+                        android:textSize="18dp"
+                        android:fontFamily="@font/sourcesanspro_regular"
+                        android:textColor="#484D54"
+                        android:textAppearance="?attr/textAppearanceBody2" />
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/tvEmailProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email"
+                    android:textSize="16dp"
+                    android:fontFamily="@font/sourcesanspro_regular"
+                    android:textColor="#484D54"
+                    android:textAppearance="?attr/textAppearanceBody2" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="right">
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:gravity="center"
+                    android:text="Posts"
+                    android:fontFamily="@font/sourcesanspro_regular"
+                    android:textColor="#484D54"
+                    android:textAppearance="?attr/textAppearanceBody2" />
+                <TextView
+                    android:id="@+id/tvCountProfile"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/sourcesanspro_regular"
+                    android:textColor="#484D54"
+                    android:textAppearance="?attr/textAppearanceBody2" />
+            </LinearLayout>
+        </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvPerfil"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/gray" />
-
+            android:background="#ececec" />
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ProgressBar
+            android:id="@+id/loadingProfile"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="100dp"
+            android:theme="@style/ProgressTheme" />
+    </RelativeLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

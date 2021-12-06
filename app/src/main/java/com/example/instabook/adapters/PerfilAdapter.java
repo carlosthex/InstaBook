@@ -12,7 +12,11 @@ import com.example.instabook.R;
 import com.example.instabook.model.Feed;
 import com.example.instabook.model.Perfil;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Locale;
 
 public class PerfilAdapter extends RecyclerView.Adapter<PerfilAdapter.ViewHolder> {
 
@@ -44,12 +48,20 @@ public class PerfilAdapter extends RecyclerView.Adapter<PerfilAdapter.ViewHolder
     public void onBindViewHolder(@NonNull PerfilAdapter.ViewHolder holder, int position) {
         Perfil perfil = dados.get(position);
         TextView tv = holder.view.findViewById(R.id.tvPerfilConteudo);
-        tv.setText("Conteudo: "+perfil.getConteudo());
+        tv.setText(perfil.getConteudo());
         tv = holder.view.findViewById(R.id.tvDataPostagemPerfil);
-        tv.setText("Data: "+perfil.getDataPostagem());
-        tv = holder.view.findViewById(R.id.tvAutorPostagemPerfil);
-        tv.setText("Autor: "+perfil.getAutorPostagem());
 
+        String dtStart = perfil.getDataPostagem();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX");
+        Locale.setDefault(new Locale("pt", "BR"));
+        try {
+            tv.setText(DateFormat.getDateInstance(DateFormat.FULL).format(format.parse(dtStart)));
+        } catch (ParseException e) {
+            tv.setText("data indisponível");
+            e.printStackTrace();
+        }
+        tv = holder.view.findViewById(R.id.tvAutorPostagemPerfil);
+        tv.setText((perfil.getAutorPostagem() != null) ? perfil.getAutorPostagem() : "autor desconhecido");
 
     }
 
