@@ -9,19 +9,22 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.instabook.R;
 import com.example.instabook.presenter.FeedPresenter;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FragmentHome#newInstance} factory method to
+ * Use the {@link FragmentFeed#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentHome extends Fragment {
+public class FragmentFeed extends Fragment implements View.OnClickListener{
 
     //instancia presenter
     FeedPresenter presenterFeed = new FeedPresenter(this);
+
+    Button button;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -32,7 +35,7 @@ public class FragmentHome extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public FragmentHome() {
+    public FragmentFeed() {
         // Required empty public constructor
     }
 
@@ -45,8 +48,8 @@ public class FragmentHome extends Fragment {
      * @return A new instance of fragment FragmentHome.
      */
     // TODO: Rename and change types and number of parameters
-    public static FragmentHome newInstance(String param1, String param2) {
-        FragmentHome fragment = new FragmentHome();
+    public static FragmentFeed newInstance(String param1, String param2) {
+        FragmentFeed fragment = new FragmentFeed();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -67,7 +70,12 @@ public class FragmentHome extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        View view = inflater.inflate(R.layout.fragment_feed, container, false);
+
+        /* Botar um button no feed layout e chamar
+        button = (Button) view.findViewById(R.id.buttonFeed);
+        button.setOnClickListener(this);
+        */
 
         presenterFeed.buscaFeed();
 
@@ -79,5 +87,10 @@ public class FragmentHome extends Fragment {
         LinearLayoutManager llm =  new LinearLayoutManager(getActivity().getApplicationContext());
         rv.setLayoutManager(llm);
         rv.setAdapter(adapter);
+    }
+
+    @Override
+    public void onClick(View view) {
+        //presenterFeed.compartilhar();
     }
 }

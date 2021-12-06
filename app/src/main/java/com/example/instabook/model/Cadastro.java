@@ -3,18 +3,8 @@ package com.example.instabook.model;
 import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
-
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-import com.example.instabook.R;
-import com.example.instabook.ui.TelaCadastro;
 
 import org.json.JSONException;
 import org.json.JSONObject;

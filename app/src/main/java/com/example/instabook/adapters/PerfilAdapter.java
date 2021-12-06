@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.instabook.R;
-import com.example.instabook.model.Feed;
 import com.example.instabook.model.Perfil;
 
 import java.text.DateFormat;

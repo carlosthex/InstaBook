@@ -14,9 +14,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.instabook.R;
 import com.example.instabook.ui.BottomNavigation;
-import com.example.instabook.ui.fragments.FragmentHome;
 import com.example.instabook.ui.fragments.FragmentPost;
-import com.example.instabook.model.Perfil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -35,9 +33,9 @@ public class PostPresenter implements Response.ErrorListener {
 
     public void publicaPostagem() {
         RequestQueue queue = Volley.newRequestQueue(tela.getActivity().getApplicationContext());
-        EditText PP = tela.getActivity().findViewById(R.id.editTextPostagem);
+        EditText etPostagem = tela.getActivity().findViewById(R.id.editTextPostagem);
 
-        String PostagemP = PP.getText().toString();
+        String postagemString = etPostagem.getText().toString();
 
         SharedPreferences pref1 = tela.getActivity().getSharedPreferences("preferencia", Context.MODE_PRIVATE);
         String Email = pref1.getString("email","Email não existente");
@@ -56,7 +54,7 @@ public class PostPresenter implements Response.ErrorListener {
 
         JSONObject postData = new JSONObject();
         try {
-            postData.put("conteudo", PostagemP);
+            postData.put("conteudo", postagemString);
             postData.put("dataPostagem", dataFormatada);
             postData.put("autorPostagem", autor);
 
@@ -69,7 +67,7 @@ public class PostPresenter implements Response.ErrorListener {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        Toast.makeText(tela.getActivity().getApplicationContext(), "Postagem realizada com sucesso"+ PostagemP, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(tela.getActivity().getApplicationContext(), "Postagem realizada com sucesso"+ postagemString, Toast.LENGTH_SHORT).show();
                         Intent bottomNav = new Intent(tela.getActivity().getApplicationContext(), BottomNavigation.class);
                         tela.startActivity(bottomNav);
                     }

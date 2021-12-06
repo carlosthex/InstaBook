@@ -75,7 +75,7 @@
                 android:orientation="horizontal">
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/botaoCadastra"
+                    android:id="@+id/buttonCadastra"
                     android:layout_width="160dp"
                     android:layout_height="60dp"
                     android:layout_marginLeft="5dp"
@@ -87,7 +87,7 @@
                     app:cornerRadius="30dp" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/botaoLogin"
+                    android:id="@+id/buttonLogin"
                     android:layout_width="160dp"
                     android:layout_height="60dp"
                     android:layout_marginLeft="5dp"

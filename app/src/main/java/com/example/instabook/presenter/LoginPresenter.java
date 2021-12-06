@@ -2,7 +2,6 @@ package com.example.instabook.presenter;
 
 import static android.content.Context.MODE_PRIVATE;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.widget.Toast;
@@ -15,9 +14,8 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.instabook.ui.BottomNavigation;
 import com.example.instabook.ui.TelaLogin;
-import com.google.android.material.textfield.TextInputLayout;
+import com.google.android.material.textfield.TextInputEditText;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -29,11 +27,11 @@ public class LoginPresenter implements Response.ErrorListener{
         this.tela = act;
     }
 
-    public void autenticarUsuario(TextInputLayout email, TextInputLayout senha) {
+    public void autenticarUsuario(TextInputEditText emailLogin, TextInputEditText senhaLogin) {
         RequestQueue queue = Volley.newRequestQueue(tela.getApplicationContext());
 
-        String EmailLoginP = email.getEditText().getText().toString();
-        String SenhaLoginP = senha.getEditText().getText().toString();
+        String EmailLoginP = emailLogin.getText().toString();
+        String SenhaLoginP = senhaLogin.getText().toString();
 
         JSONObject postData = new JSONObject();
         try {
@@ -51,22 +49,24 @@ public class LoginPresenter implements Response.ErrorListener{
                     public void onResponse(JSONObject response) {
                         //chama as preferencias
                         SharedPreferences prefs = tela.getSharedPreferences("preferencia", MODE_PRIVATE);
+
                         //chama o editor de preferencias
-                        SharedPreferences.Editor ed = prefs.edit();
+                        SharedPreferences.Editor editor = prefs.edit();
                         try {
-                            //procura na response que vem no onResponse o valor id, e coloca na string userId
+                            //procura na response que vem no onResponse os valores
+                            //e coloca nas strings
                             JSONObject teste = response;
                             String userId = response.getString("id");
-                            //procura na response que vem no onResponse o valor nome, e coloca na string username
                             String username = response.getString("nome");
-                            //procura na response que vem no onResponse o valor idade, e coloca na string age
                             String age = response.getString("idade");
+
                             //coloca eles no editor de preferencias
-                            ed.putString("id", userId);
-                            ed.putString("nome", username);
-                            ed.putString("idade", age);
+                            editor.putString("id", userId);
+                            editor.putString("nome", username);
+                            editor.putString("idade", age);
+
                             //salva tudo
-                            ed.apply();
+                            editor.apply();
                         } catch (JSONException e) {
                             //Se der erro ao encontrar o valor na response faz um toast
                             Toast.makeText(tela.getApplicationContext(), "Ocorreu algum erro ao recuperar dados do usuário",

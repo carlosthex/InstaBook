@@ -1,11 +1,7 @@
 package com.example.instabook.presenter;;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -14,16 +10,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.instabook.R;
-import com.example.instabook.adapters.FeedAdapter;
-import com.example.instabook.adapters.PerfilAdapter;
 import com.example.instabook.adapters.PesquisaAdapter;
-import com.example.instabook.model.Feed;
-import com.example.instabook.model.Perfil;
 import com.example.instabook.model.Pesquisa;
-import com.example.instabook.ui.TelaCadastro;
-import com.example.instabook.ui.TelaLogin;
-import com.example.instabook.ui.fragments.FragmentHome;
-import com.example.instabook.ui.fragments.FragmentPerfil;
 import com.example.instabook.ui.fragments.FragmentPesquisa;
 
 import org.json.JSONArray;
@@ -74,6 +62,7 @@ public class PesquisaPresenter implements Response.Listener<JSONArray>,
 
     @Override
     public void onErrorResponse(VolleyError error) {
+        Toast.makeText(tela.getActivity().getApplicationContext(), "Erro ao realizar a pesquisa", Toast.LENGTH_SHORT).show();
 
     }
 }
