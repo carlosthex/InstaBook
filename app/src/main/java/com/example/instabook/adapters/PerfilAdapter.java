@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.instabook.R;
-import com.example.instabook.model.Feed;
 import com.example.instabook.model.Perfil;
 
 import java.text.DateFormat;
@@ -50,6 +49,8 @@ public class PerfilAdapter extends RecyclerView.Adapter<PerfilAdapter.ViewHolder
         TextView tv = holder.view.findViewById(R.id.tvPerfilConteudo);
         tv.setText(perfil.getConteudo());
         tv = holder.view.findViewById(R.id.tvDataPostagemPerfil);
+
+        //Supostamente o compartilhar, mas precisa ser FeedAdapter
 
         String dtStart = perfil.getDataPostagem();
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX");

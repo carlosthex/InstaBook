@@ -12,7 +12,6 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.instabook.ui.BottomNavigation;
 import com.example.instabook.ui.TelaCadastro;
-import com.example.instabook.ui.fragments.FragmentHome;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -27,17 +26,17 @@ public class CadastroPresenter implements Response.ErrorListener{
     public void cadastrarUsuario(EditText NS, EditText Idade,EditText Email,EditText Senha) {
         RequestQueue queue = Volley.newRequestQueue(tela.getApplicationContext());
 
-        String NomeP = NS.getText().toString();
-        String IdadeP = Idade.getText().toString();
-        String EmailP = Email.getText().toString();
-        String SenhaP = Senha.getText().toString();
+        String NomeString = NS.getText().toString();
+        String IdadeString = Idade.getText().toString();
+        String EmailString = Email.getText().toString();
+        String SenhaString = Senha.getText().toString();
 
         JSONObject postData = new JSONObject();
         try {
-            postData.put("nome", NomeP);
-            postData.put("idade", IdadeP);
-            postData.put("email", EmailP);
-            postData.put("senha", SenhaP);
+            postData.put("nome", NomeString);
+            postData.put("idade", IdadeString);
+            postData.put("email", EmailString);
+            postData.put("senha", SenhaString);
 
         } catch (JSONException e) {
             e.printStackTrace();

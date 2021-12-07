@@ -1,8 +1,10 @@
 package com.example.instabook.presenter;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -13,8 +15,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.instabook.R;
 import com.example.instabook.adapters.FeedAdapter;
 import com.example.instabook.model.Feed;
-import com.example.instabook.ui.fragments.FragmentHome;
-import com.google.android.material.progressindicator.CircularProgressIndicator;
+import com.example.instabook.ui.fragments.FragmentFeed;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,9 +27,9 @@ public class FeedPresenter implements Response.Listener<JSONArray>,
         Response.ErrorListener {
 
     private List<Feed> feed = new ArrayList<>();
-    private FragmentHome tela;
+    private FragmentFeed tela;
 
-    public FeedPresenter(FragmentHome act) {
+    public FeedPresenter(FragmentFeed act) {
         this.tela = act;
     }
 
@@ -42,6 +43,32 @@ public class FeedPresenter implements Response.Listener<JSONArray>,
                 this,this);
         queue.add(requisicao);
     }
+
+    /*
+    public void compartilhar()
+    {
+        //O dado, por teste deixei editText
+        //EditText info = tela.getActivity().findViewById(R.id.editTextCompart);
+
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        //info.getText().toString();
+        String CompartilharString = "socorro";
+        sendIntent.putExtra(Intent.EXTRA_TEXT, CompartilharString);
+        sendIntent.setType("text/plain");
+
+        //Gambiarra direcionada pelo próprio whatsapp
+        sendIntent.setPackage("com.whatsapp");
+
+        try{
+            tela.getActivity().startActivity(sendIntent);
+        }catch (ActivityNotFoundException ex){
+            Toast.makeText(tela.getActivity(), "Whatsapp Não Instalado", Toast.LENGTH_SHORT).show();
+
+        }
+    }
+        */
+
 
     @Override
     public void onResponse(JSONArray response) {
@@ -64,6 +91,6 @@ public class FeedPresenter implements Response.Listener<JSONArray>,
 
     @Override
     public void onErrorResponse(VolleyError error) {
-
+        Toast.makeText(tela.getActivity().getApplicationContext(), "Erro ao carregar o feed", Toast.LENGTH_SHORT).show();
     }
 }

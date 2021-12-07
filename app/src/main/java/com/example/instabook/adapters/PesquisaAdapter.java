@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.instabook.R;
-import com.example.instabook.model.Feed;
 import com.example.instabook.model.Pesquisa;
 
 import java.util.List;
@@ -50,6 +49,7 @@ public class PesquisaAdapter extends RecyclerView.Adapter<PesquisaAdapter.ViewHo
         tv = holder.view.findViewById(R.id.tvAutorPostagemPesquisa);
         tv.setText("Autor: "+pesquisa.getAutorPostagem());
 
+        //Supostamente o compartilhar, mas precisa ser FeedAdapter
 
     }
 
