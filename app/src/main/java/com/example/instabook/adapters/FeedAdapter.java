@@ -54,7 +54,7 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
         tv.setText(feed.getConteudo());
         tv = holder.view.findViewById(R.id.tvDataPostagem);
 
-        //Gambi feia
+        //Gambi
         Button botao;
         botao = holder.view.findViewById(R.id.buttonCompartilha);
         botao.setOnClickListener(new View.OnClickListener() {
