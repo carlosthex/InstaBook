@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.example.instabook.R;
 import com.example.instabook.presenter.FeedPresenter;
@@ -19,12 +18,10 @@ import com.example.instabook.presenter.FeedPresenter;
  * Use the {@link FragmentFeed#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentFeed extends Fragment implements View.OnClickListener{
+public class FragmentFeed extends Fragment {
 
     //instancia presenter
     FeedPresenter presenterFeed = new FeedPresenter(this);
-
-    Button button;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -72,10 +69,6 @@ public class FragmentFeed extends Fragment implements View.OnClickListener{
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_feed, container, false);
 
-        /* Botar um button no feed layout e chamar
-        button = (Button) view.findViewById(R.id.buttonFeed);
-        button.setOnClickListener(this);
-        */
         presenterFeed.buscaFeed();
 
         return view;
@@ -86,9 +79,5 @@ public class FragmentFeed extends Fragment implements View.OnClickListener{
         LinearLayoutManager llm =  new LinearLayoutManager(getActivity().getApplicationContext());
         rv.setLayoutManager(llm);
         rv.setAdapter(adapter);
-    }
-    @Override
-    public void onClick(View view) {
-        //presenterFeed.compartilhar();
     }
 }

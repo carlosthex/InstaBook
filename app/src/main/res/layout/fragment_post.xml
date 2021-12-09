@@ -4,8 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5DC"
-    android:backgroundTint="@color/secondaryColor"
     tools:context=".ui.fragments.FragmentPost">
 
         <LinearLayout
@@ -24,17 +22,6 @@
                             android:layout_height="50dp"
                             android:layout_gravity="center_horizontal"
                             android:src="@drawable/_02" />
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/buttonPublicar"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/white"
-                            android:layout_gravity="right|center_vertical"
-                            android:layout_marginRight="10dp"
-                            android:scaleType="fitCenter"
-                            android:text="@string/Publicar"
-                            app:backgroundTint="#ca9b52"
-                            app:cornerRadius="7dp" />
                 </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -47,6 +34,7 @@
             app:boxStrokeColor="#ca9b52"
             android:layout_margin="30dp"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -54,6 +42,16 @@
                     android:gravity="start"
                     android:lines="7"
                     />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/buttonPublicar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:layout_gravity="center"
+                    android:scaleType="fitCenter"
+                    android:text="@string/Publicar"
+                    app:backgroundTint="#ca9b52"
+                    app:cornerRadius="7dp" />
         </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

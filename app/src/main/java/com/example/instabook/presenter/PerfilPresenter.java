@@ -1,6 +1,9 @@
 package com.example.instabook.presenter;;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -16,6 +19,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.instabook.R;
 import com.example.instabook.adapters.PerfilAdapter;
 import com.example.instabook.model.Perfil;
+import com.example.instabook.ui.TelaLogin;
 import com.example.instabook.ui.fragments.FragmentPerfil;
 
 import org.json.JSONArray;
@@ -29,21 +33,38 @@ public class PerfilPresenter implements Response.Listener<JSONArray>,
 
     private List<Perfil> perfil = new ArrayList<>();
     private FragmentPerfil tela;
-    private TextView tvPosts;
+    private TextView tv;
 
     public PerfilPresenter(FragmentPerfil act) {
         this.tela = act;
     }
 
+    public void logOut()
+    {
+        SharedPreferences pref = tela.getActivity().getSharedPreferences("preferencia",MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString("senha","");
+        editor.apply();
 
-
-    public void buscaPerfil() {
+        Intent telaLogin = new Intent(tela.getActivity().getApplicationContext(), TelaLogin.class);
+        tela.getActivity().startActivity(telaLogin);
+        Toast.makeText(tela.getActivity().getApplicationContext(), "Desconectou-se", Toast.LENGTH_SHORT).show();
+    }
+    
+    public void buscaPerfil(View view) {
         RequestQueue queue = Volley.newRequestQueue(tela.getActivity().getApplicationContext());
 
+        SharedPreferences pref = tela.getActivity().getSharedPreferences("preferencia", Context.MODE_PRIVATE);
+        String Email = pref.getString("email","Email não existente");
 
-        SharedPreferences pref1 = tela.getActivity().getSharedPreferences("preferencia", Context.MODE_PRIVATE);
-        String Email = pref1.getString("email","Email não existente");
+        tv = view.findViewById(R.id.tvNSPerfil);
+        tv.setText(pref.getString("nome", "Sem nome definido"));
 
+        tv = view.findViewById(R.id.tvIdadePerfil);
+        tv.setText(pref.getString("idade", "18") + " anos");
+
+        tv = view.findViewById(R.id.tvEmailPerfil);
+        tv.setText(pref.getString("email", "Email não cadastrado"));
 
         JsonArrayRequest requisicao = new JsonArrayRequest(Request.Method.GET,
                 "http://ec2-18-116-202-134.us-east-2.compute.amazonaws.com:7777/postagem/email/"+Email,null,
@@ -55,12 +76,12 @@ public class PerfilPresenter implements Response.Listener<JSONArray>,
     public void onResponse(JSONArray response) {
         ProgressBar loader = tela.getActivity().findViewById(R.id.loadingProfile);
         perfil.clear();
-        tvPosts = tela.getView().findViewById(R.id.tvCountProfile);
-        tvPosts.setText(response.length() + "");
+        tv = tela.getView().findViewById(R.id.tvCountProfile);
+        tv.setText(response.length() + "");
 
         try {
             for (int x = 0; x <1; x++) {
-                for (int i = 0; i < response.length(); i++) {
+                for (int i = response.length()-1; i >= 0; i--) {
                     perfil.add(new Perfil(response.getJSONObject(i)));
                 }
             }
