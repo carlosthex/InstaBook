@@ -15,6 +15,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.instabook.R;
 import com.example.instabook.ui.BottomNavigation;
 import com.example.instabook.ui.fragments.FragmentPost;
+import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,9 +34,9 @@ public class PostPresenter implements Response.ErrorListener {
 
     public void publicaPostagem() {
         RequestQueue queue = Volley.newRequestQueue(tela.getActivity().getApplicationContext());
-        EditText etPostagem = tela.getActivity().findViewById(R.id.editTextPostagem);
+        TextInputLayout etPostagem = tela.getActivity().findViewById(R.id.editTextPostagem);
 
-        String postagemString = etPostagem.getText().toString();
+        String postagemString = etPostagem.getEditText().getText().toString();
 
         SharedPreferences pref1 = tela.getActivity().getSharedPreferences("preferencia", Context.MODE_PRIVATE);
         String Email = pref1.getString("email","Email não existente");

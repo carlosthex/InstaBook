@@ -69,7 +69,6 @@ public class FeedPresenter implements Response.Listener<JSONArray>,
     }
         */
 
-
     @Override
     public void onResponse(JSONArray response) {
         ProgressBar loader = tela.getActivity().findViewById(R.id.loading);

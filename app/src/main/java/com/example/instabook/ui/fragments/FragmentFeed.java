@@ -19,7 +19,7 @@ import com.example.instabook.presenter.FeedPresenter;
  * Use the {@link FragmentFeed#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentFeed extends Fragment {
+public class FragmentFeed extends Fragment implements View.OnClickListener{
 
     //instancia presenter
     FeedPresenter presenterFeed = new FeedPresenter(this);
@@ -72,6 +72,10 @@ public class FragmentFeed extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_feed, container, false);
 
+        /* Botar um button no feed layout e chamar
+        button = (Button) view.findViewById(R.id.buttonFeed);
+        button.setOnClickListener(this);
+        */
         presenterFeed.buscaFeed();
 
         return view;
@@ -82,5 +86,9 @@ public class FragmentFeed extends Fragment {
         LinearLayoutManager llm =  new LinearLayoutManager(getActivity().getApplicationContext());
         rv.setLayoutManager(llm);
         rv.setAdapter(adapter);
+    }
+    @Override
+    public void onClick(View view) {
+        //presenterFeed.compartilhar();
     }
 }

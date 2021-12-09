@@ -8,22 +8,53 @@
     android:backgroundTint="@color/secondaryColor"
     tools:context=".ui.fragments.FragmentPost">
 
-        <EditText
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                        <ImageView
+                            android:layout_width="160dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/_02" />
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/buttonPublicar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:layout_gravity="right|center_vertical"
+                            android:layout_marginRight="10dp"
+                            android:scaleType="fitCenter"
+                            android:text="@string/Publicar"
+                            app:backgroundTint="#ca9b52"
+                            app:cornerRadius="7dp" />
+                </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/editTextPostagem"
-            android:layout_width="339dp"
-            android:layout_height="45dp"
-            android:backgroundTint="@color/black"
-            android:ems="10"
-            android:inputType="textPersonName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:hint="@string/Postagem"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.237" />
+            app:hintTextColor="#ca9b52"
+            app:boxStrokeColor="#ca9b52"
+            android:layout_margin="30dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textMultiLine"
+                    android:gravity="start"
+                    android:lines="7"
+                    />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/buttonPublicar"
@@ -36,5 +67,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.846" />/>
+            app:layout_constraintVertical_bias="0.846" />
+        </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

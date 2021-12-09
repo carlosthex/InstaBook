@@ -13,30 +13,21 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.instabook.ui.BottomNavigation;
+import com.example.instabook.ui.SplashInstaBook;
 import com.example.instabook.ui.TelaLogin;
-import com.google.android.material.textfield.TextInputEditText;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class LoginPresenter implements Response.ErrorListener{
-
-    private TelaLogin tela;
-    public LoginPresenter(TelaLogin act) {
-        this.tela = act;
-    }
-
-    public void autenticarUsuario(TextInputEditText emailLogin, TextInputEditText senhaLogin) {
+public class SplashPresenter implements Response.ErrorListener{
+    private SplashInstaBook tela;
+    public SplashPresenter(SplashInstaBook act) {this.tela = act;}
+    public void autenticarUsuarioStrig(String email, String senha) {
         RequestQueue queue = Volley.newRequestQueue(tela.getApplicationContext());
-
-        String EmailLoginP = emailLogin.getText().toString();
-        String SenhaLoginP = senhaLogin.getText().toString();
-
         JSONObject postData = new JSONObject();
         try {
-            postData.put("email", EmailLoginP);
-            postData.put("senha", SenhaLoginP);
-
+            postData.put("email", email);
+            postData.put("senha", senha);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -47,7 +38,6 @@ public class LoginPresenter implements Response.ErrorListener{
                     public void onResponse(JSONObject response) {
                         //chama as preferencias
                         SharedPreferences prefs = tela.getSharedPreferences("preferencia", MODE_PRIVATE);
-
                         //chama o editor de preferencias
                         SharedPreferences.Editor editor = prefs.edit();
                         try {
@@ -62,7 +52,6 @@ public class LoginPresenter implements Response.ErrorListener{
                             editor.putString("id", userId);
                             editor.putString("nome", username);
                             editor.putString("idade", age);
-
                             //salva tudo
                             editor.apply();
                         } catch (JSONException e) {
@@ -73,14 +62,15 @@ public class LoginPresenter implements Response.ErrorListener{
                         Toast.makeText(tela.getApplicationContext(), "Autenticação realizada com sucesso",
                                 Toast.LENGTH_SHORT).show();
                         Intent bottomNav = new Intent(tela.getApplicationContext(), BottomNavigation.class);
-                        tela.startActivity(bottomNav);
-                    }
+                        tela.startActivity(bottomNav);                    }
                 },this);
         queue.add(requisicao);
     }
     @Override
     public void onErrorResponse(VolleyError error) {
-        Toast.makeText(tela.getApplicationContext(), "Erro ao realizar a autenticação",
-                Toast.LENGTH_SHORT).show();
+        Intent log = new Intent(tela.getApplicationContext(), TelaLogin.class);
+        tela.startActivity(log);
     }
 }
+
+

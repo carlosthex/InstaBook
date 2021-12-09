@@ -15,7 +15,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.instabook.R;
 import com.example.instabook.model.Pesquisa;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Locale;
 
 public class PesquisaAdapter extends RecyclerView.Adapter<PesquisaAdapter.ViewHolder> {
 
@@ -45,12 +49,20 @@ public class PesquisaAdapter extends RecyclerView.Adapter<PesquisaAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull PesquisaAdapter.ViewHolder holder, int position) {
         Pesquisa pesquisa = dados.get(position);
-        TextView tv = holder.view.findViewById(R.id.tvAutorPostagem);
-        tv.setText("Conteudo: "+pesquisa.getConteudo());
+        TextView tv = holder.view.findViewById(R.id.tvFeedConteudo);
+        tv.setText(pesquisa.getConteudo());
         tv = holder.view.findViewById(R.id.tvDataPostagem);
-        tv.setText("Data: "+pesquisa.getDataPostagem());
-        tv = holder.view.findViewById(R.id.tvFeedConteudo);
-        tv.setText("Autor: "+pesquisa.getAutorPostagem());
+        String dtStart = pesquisa.getDataPostagem();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX");
+        Locale.setDefault(new Locale("pt", "BR"));
+        try {
+            tv.setText(DateFormat.getDateInstance(DateFormat.FULL).format(format.parse(dtStart)));
+        } catch (ParseException e) {
+            tv.setText("data indisponível");
+            e.printStackTrace();
+        }
+        tv = holder.view.findViewById(R.id.tvAutorPostagem);
+        tv.setText(pesquisa.getAutorPostagem());
 
         //Gambi
         Button botao;
