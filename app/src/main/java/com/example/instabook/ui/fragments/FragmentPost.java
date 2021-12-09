@@ -73,6 +73,7 @@ public class FragmentPost extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_post, container, false);
+
         btPost = (Button) view.findViewById(R.id.buttonPublicar);
         btPost.setOnClickListener(this);
 
@@ -81,11 +82,6 @@ public class FragmentPost extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        SimpleDateFormat formataData = new SimpleDateFormat("yyyy-MM-dd HH:mm:SS.X");
-        Date data = new Date();
-        String dataFormatada = formataData.format(data);
-        Toast.makeText(getActivity().getApplicationContext(),
-                "Data formatada " + dataFormatada, Toast.LENGTH_SHORT).show();
         presenterPost.publicaPostagem();
     }
 }

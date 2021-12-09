@@ -48,7 +48,7 @@ public class PesquisaPresenter implements Response.Listener<JSONArray>,
         pesquisa.clear();
         try {
             for (int x = 0; x <1; x++) {
-                for (int i = response.length()-0; i >= 0; i--) {
+                for (int i = response.length()-1; i >= 0; i--) {
                     pesquisa.add(new Pesquisa(response.getJSONObject(i)));
                 }
             }

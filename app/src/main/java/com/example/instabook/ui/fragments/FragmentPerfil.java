@@ -14,12 +14,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.instabook.R;
 import com.example.instabook.presenter.PerfilPresenter;
-import com.example.instabook.ui.TelaLogin;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,7 +27,6 @@ public class FragmentPerfil extends Fragment implements View.OnClickListener {
 
     PerfilPresenter presenterPerfil = new PerfilPresenter(this);
     Button botao;
-    TextView tvName, tvAge, tvEmail;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -79,18 +75,11 @@ public class FragmentPerfil extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
-        SharedPreferences pref = getActivity().getSharedPreferences("preferencia",MODE_PRIVATE);
 
-        tvName = view.findViewById(R.id.tvNameProfile);
-        tvAge = view.findViewById(R.id.tvAgeProfile);
-        tvEmail = view.findViewById(R.id.tvEmailProfile);
         botao = (Button) view.findViewById(R.id.buttonLogout);
-
-        tvName.setText(pref.getString("nome", "Sem nome definido"));
-        tvAge.setText(pref.getString("idade", "18") + " anos");
-        tvEmail.setText(pref.getString("email", "Email não cadastrado"));
         botao.setOnClickListener(this);
-        presenterPerfil.buscaPerfil();
+
+        presenterPerfil.buscaPerfil(view);
 
         return view;
     }
@@ -104,13 +93,6 @@ public class FragmentPerfil extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        SharedPreferences pref = getActivity().getSharedPreferences("preferencia",MODE_PRIVATE);
-        SharedPreferences.Editor editor = pref.edit();
-        editor.putString("senha","");
-        editor.apply();
-
-        Intent telaLogin = new Intent(getActivity().getApplicationContext(), TelaLogin.class);
-        getActivity().startActivity(telaLogin);
-        Toast.makeText(getActivity().getApplicationContext(), "Apertou pra deslogar", Toast.LENGTH_SHORT).show();
+        presenterPerfil.logOut();
     }
 }

@@ -16,19 +16,7 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/buttonBack"
-                    android:visibility="gone"
-                    android:layout_width="56dp"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/white"
-                    android:layout_gravity="left|center_vertical"
-                    android:layout_marginRight="10dp"
-                    android:scaleType="fitCenter"
-                    app:icon="@drawable/logout"
-                    app:iconTint="#ca9b52"
-                    app:iconSize="30dp"
-                    app:cornerRadius="7dp" />
+
                 <ImageView
                     android:layout_width="160dp"
                     android:layout_height="50dp"
@@ -58,7 +46,7 @@
                     />
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/buttonPesquisa"
+                android:id="@+id/buttonPublicar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"

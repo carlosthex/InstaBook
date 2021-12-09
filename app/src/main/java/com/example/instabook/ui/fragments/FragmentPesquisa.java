@@ -10,14 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.instabook.R;
 
 import com.example.instabook.presenter.PesquisaPresenter;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 
 /**
@@ -77,19 +73,10 @@ public class FragmentPesquisa extends Fragment implements View.OnClickListener{
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_pesquisa, container, false);
 
-        btPesquisa = (Button) view.findViewById(R.id.buttonPesquisa);
+        btPesquisa = (Button) view.findViewById(R.id.buttonPublicar);
         btPesquisa.setOnClickListener(this);
 
         return view;
-    }
-
-    @Override
-    public void onClick(View view) {
-        SimpleDateFormat formataData = new SimpleDateFormat("yyyy-MM-dd HH:mm:SS.X");
-        Date data = new Date();
-        String dataFormatada = formataData.format(data);
-
-        presenterPesquisa.buscaPesquisa();
     }
 
     public void preparaRecyclerView(RecyclerView.Adapter adapter){
@@ -97,5 +84,10 @@ public class FragmentPesquisa extends Fragment implements View.OnClickListener{
         LinearLayoutManager llm =  new LinearLayoutManager(getActivity().getApplicationContext());
         rv.setLayoutManager(llm);
         rv.setAdapter(adapter);
+    }
+
+    @Override
+    public void onClick(View view) {
+        presenterPesquisa.buscaPesquisa();
     }
 }
