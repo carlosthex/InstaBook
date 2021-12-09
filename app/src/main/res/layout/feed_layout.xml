@@ -25,41 +25,60 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="16dp">
-                <TextView
-                    android:id="@+id/tvAutorPostagem"
-                    android:layout_width="wrap_content"
+                android:paddingRight="16dp"
+                android:paddingLeft="16dp"
+                android:paddingBottom="16dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Autor"
-                    android:fontFamily="@font/sourcesanspro_regular"
-                    android:textColor="#484D54"
-                    android:textAppearance="?attr/textAppearanceBody2" />
-                <TextView
-                    android:id="@+id/tvDataPostagem"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Data"
-                    android:fontFamily="@font/sourcesanspro_regular"
-                    android:textColor="#484D54"
-                    android:textAppearance="?attr/textAppearanceBody2" />
+                    android:layout_alignParentRight="true"
+                    android:paddingTop="5dp">
+                    <TextView
+                        android:id="@+id/tvAutorPostagem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="14dp"
+                        android:text="Autor"
+                        android:fontFamily="@font/sourcesanspro_regular"
+                        android:textColor="#484D54"
+                        android:textAppearance="?attr/textAppearanceBody2" />
+                    <TextView
+                        android:id="@+id/tvDataPostagem"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tvAutorPostagem"
+                        android:text="Data"
+                        android:fontFamily="@font/sourcesanspro_regular"
+                        android:textColor="#484D54"
+                        android:textAppearance="?attr/textAppearanceBody2" />
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/buttonCompartilha"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:layout_alignParentRight="true"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:elevation="0dp"
+                        android:scaleType="fitCenter"
+                        app:icon="@drawable/share"
+                        app:iconTint="@color/primaryDarkColor"
+                        app:iconSize="30dp"
+                        app:backgroundTint="@color/white"
+                        app:cornerRadius="20dp" />
+                </RelativeLayout>
                 <TextView
                     android:id="@+id/tvFeedConteudo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
+                    android:paddingTop="10dp"
                     android:text="Texto"
                     android:textAppearance="?attr/textAppearanceBody1"
                     android:textColor="?android:attr/textColorSecondary" />
-                <Button
-                    android:id="@+id/buttonCompartilha"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Button" />
             </LinearLayout>
         </LinearLayout>
 
