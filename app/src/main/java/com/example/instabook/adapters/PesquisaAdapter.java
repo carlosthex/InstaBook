@@ -11,7 +11,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.instabook.R;
 import com.example.instabook.model.Pesquisa;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Locale;
 
 public class PesquisaAdapter extends RecyclerView.Adapter<PesquisaAdapter.ViewHolder> {
 
@@ -43,11 +47,19 @@ public class PesquisaAdapter extends RecyclerView.Adapter<PesquisaAdapter.ViewHo
     public void onBindViewHolder(@NonNull PesquisaAdapter.ViewHolder holder, int position) {
         Pesquisa pesquisa = dados.get(position);
         TextView tv = holder.view.findViewById(R.id.tvPesquisaConteudo);
-        tv.setText("Conteudo: "+pesquisa.getConteudo());
+        tv.setText(pesquisa.getConteudo());
         tv = holder.view.findViewById(R.id.tvDataPostagemPesquisa);
-        tv.setText("Data: "+pesquisa.getDataPostagem());
+        String dtStart = pesquisa.getDataPostagem();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX");
+        Locale.setDefault(new Locale("pt", "BR"));
+        try {
+            tv.setText(DateFormat.getDateInstance(DateFormat.FULL).format(format.parse(dtStart)));
+        } catch (ParseException e) {
+            tv.setText("data indisponível");
+            e.printStackTrace();
+        }
         tv = holder.view.findViewById(R.id.tvAutorPostagemPesquisa);
-        tv.setText("Autor: "+pesquisa.getAutorPostagem());
+        tv.setText(pesquisa.getAutorPostagem());
 
 
     }

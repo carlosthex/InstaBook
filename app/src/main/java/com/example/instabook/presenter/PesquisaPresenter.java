@@ -13,6 +13,7 @@ import com.example.instabook.R;
 import com.example.instabook.adapters.PesquisaAdapter;
 import com.example.instabook.model.Pesquisa;
 import com.example.instabook.ui.fragments.FragmentPesquisa;
+import com.google.android.material.textfield.TextInputLayout;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,9 +34,9 @@ public class PesquisaPresenter implements Response.Listener<JSONArray>,
     public void buscaPesquisa() {
         RequestQueue queue = Volley.newRequestQueue(tela.getActivity().getApplicationContext());
 
-        EditText emailPerfil = tela.getActivity().findViewById(R.id.editTextPesquisa);
+        TextInputLayout emailPerfil = tela.getActivity().findViewById(R.id.editTextPesquisa);
 
-        String email = emailPerfil.getText().toString();
+        String email = emailPerfil.getEditText().getText().toString();
 
         JsonArrayRequest requisicao = new JsonArrayRequest(Request.Method.GET,
                 "http://ec2-18-116-202-134.us-east-2.compute.amazonaws.com:7777/postagem/email/"+email,null,
