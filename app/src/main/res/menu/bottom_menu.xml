@@ -3,7 +3,7 @@
 
     <item
         android:title="Home" android:icon="@drawable/ic_home"
-        android:id="@+id/fragmentHome" />
+        android:id="@+id/fragmentFeed" />
 
     <item
         android:title="Pesquisa" android:icon="@drawable/ic_search"

@@ -26,8 +26,8 @@ public class BottomNavigation extends AppCompatActivity {
         bnv.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if (item.getItemId() == R.id.fragmentHome) {
-                    nc.navigate(R.id.fragmentHome);
+                if (item.getItemId() == R.id.fragmentFeed) {
+                    nc.navigate(R.id.fragmentFeed);
                     return true;
                 }
                 if (item.getItemId() == R.id.fragmentPesquisa) {

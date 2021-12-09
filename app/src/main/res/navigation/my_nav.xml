@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_nav"
-    app:startDestination="@id/fragmentHome">
+    app:startDestination="@id/fragmentFeed">
 
     <fragment
         android:id="@+id/fragmentPesquisa"
@@ -11,9 +11,9 @@
         android:label="fragment_pesquisa"
         tools:layout="@layout/fragment_pesquisa" />
     <fragment
-        android:id="@+id/fragmentHome"
+        android:id="@+id/fragmentFeed"
         android:name="com.example.instabook.ui.fragments.FragmentFeed"
-        android:label="fragment_home"
+        android:label="fragment_feed"
         tools:layout="@layout/fragment_feed" />
     <fragment
         android:id="@+id/fragmentPost"
@@ -24,5 +24,5 @@
         android:id="@+id/fragmentPerfil"
         android:name="com.example.instabook.ui.fragments.FragmentPerfil"
         android:label="fragment_perfil"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_perfil" />
 </navigation>
