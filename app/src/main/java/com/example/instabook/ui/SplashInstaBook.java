@@ -18,6 +18,7 @@ public class SplashInstaBook extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_insta_book);
         SplashPresenter splashPresenter = new SplashPresenter(this);
+
         SharedPreferences pref = getSharedPreferences("preferencia",MODE_PRIVATE);
         String prefEmail = pref.getString("email","");
         String prefSenha = pref.getString("senha","");

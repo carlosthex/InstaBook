@@ -88,8 +88,7 @@ public class FragmentPesquisa extends Fragment implements View.OnClickListener{
         SimpleDateFormat formataData = new SimpleDateFormat("yyyy-MM-dd HH:mm:SS.X");
         Date data = new Date();
         String dataFormatada = formataData.format(data);
-        Toast.makeText(getActivity().getApplicationContext(),
-                "Data formatada " + dataFormatada, Toast.LENGTH_SHORT).show();
+
         presenterPesquisa.buscaPesquisa();
     }
 

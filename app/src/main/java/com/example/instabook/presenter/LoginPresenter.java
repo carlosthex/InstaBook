@@ -78,6 +78,7 @@ public class LoginPresenter implements Response.ErrorListener{
                 },this);
         queue.add(requisicao);
     }
+
     @Override
     public void onErrorResponse(VolleyError error) {
         Toast.makeText(tela.getApplicationContext(), "Erro ao realizar a autenticação",

@@ -81,7 +81,6 @@ public class FragmentPerfil extends Fragment implements View.OnClickListener {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         SharedPreferences pref = getActivity().getSharedPreferences("preferencia",MODE_PRIVATE);
 
-        //Tentar usar DataBinding
         tvName = view.findViewById(R.id.tvNameProfile);
         tvAge = view.findViewById(R.id.tvAgeProfile);
         tvEmail = view.findViewById(R.id.tvEmailProfile);
@@ -110,7 +109,6 @@ public class FragmentPerfil extends Fragment implements View.OnClickListener {
         editor.putString("senha","");
         editor.apply();
 
-        //Quem sabe um repositorio, pra sair em qualquer fragment
         Intent telaLogin = new Intent(getActivity().getApplicationContext(), TelaLogin.class);
         getActivity().startActivity(telaLogin);
         Toast.makeText(getActivity().getApplicationContext(), "Apertou pra deslogar", Toast.LENGTH_SHORT).show();

@@ -1,6 +1,5 @@
 package com.example.instabook.presenter;;
 
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -49,7 +48,7 @@ public class PesquisaPresenter implements Response.Listener<JSONArray>,
         pesquisa.clear();
         try {
             for (int x = 0; x <1; x++) {
-                for (int i = 0; i < response.length(); i++) {
+                for (int i = response.length()-0; i >= 0; i--) {
                     pesquisa.add(new Pesquisa(response.getJSONObject(i)));
                 }
             }

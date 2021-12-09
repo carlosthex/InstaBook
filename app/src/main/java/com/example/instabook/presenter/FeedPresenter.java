@@ -1,7 +1,5 @@
 package com.example.instabook.presenter;
 
-import android.content.ActivityNotFoundException;
-import android.content.Intent;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -44,38 +42,13 @@ public class FeedPresenter implements Response.Listener<JSONArray>,
         queue.add(requisicao);
     }
 
-    /*
-    public void compartilhar()
-    {
-        //O dado, por teste deixei editText
-        //EditText info = tela.getActivity().findViewById(R.id.editTextCompart);
-
-        Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND);
-        //info.getText().toString();
-        String CompartilharString = "socorro";
-        sendIntent.putExtra(Intent.EXTRA_TEXT, CompartilharString);
-        sendIntent.setType("text/plain");
-
-        //Gambiarra direcionada pelo próprio whatsapp
-        sendIntent.setPackage("com.whatsapp");
-
-        try{
-            tela.getActivity().startActivity(sendIntent);
-        }catch (ActivityNotFoundException ex){
-            Toast.makeText(tela.getActivity(), "Whatsapp não instalado", Toast.LENGTH_SHORT).show();
-
-        }
-    }
-        */
-
     @Override
     public void onResponse(JSONArray response) {
         ProgressBar loader = tela.getActivity().findViewById(R.id.loading);
         feed.clear();
         try {
             for (int x = 0; x <1; x++) {
-                for (int i = response.length()-1; i > 0; i--) {
+                for (int i = response.length()-1; i >= 0; i--) {
                     feed.add(new Feed(response.getJSONObject(i)));
                 }
             }

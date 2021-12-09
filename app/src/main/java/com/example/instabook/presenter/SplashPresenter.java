@@ -22,8 +22,10 @@ import org.json.JSONObject;
 public class SplashPresenter implements Response.ErrorListener{
     private SplashInstaBook tela;
     public SplashPresenter(SplashInstaBook act) {this.tela = act;}
+
     public void autenticarUsuarioStrig(String email, String senha) {
         RequestQueue queue = Volley.newRequestQueue(tela.getApplicationContext());
+
         JSONObject postData = new JSONObject();
         try {
             postData.put("email", email);
@@ -38,6 +40,7 @@ public class SplashPresenter implements Response.ErrorListener{
                     public void onResponse(JSONObject response) {
                         //chama as preferencias
                         SharedPreferences prefs = tela.getSharedPreferences("preferencia", MODE_PRIVATE);
+
                         //chama o editor de preferencias
                         SharedPreferences.Editor editor = prefs.edit();
                         try {
@@ -66,6 +69,7 @@ public class SplashPresenter implements Response.ErrorListener{
                 },this);
         queue.add(requisicao);
     }
+
     @Override
     public void onErrorResponse(VolleyError error) {
         Intent log = new Intent(tela.getApplicationContext(), TelaLogin.class);

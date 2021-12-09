@@ -60,7 +60,7 @@ public class PerfilPresenter implements Response.Listener<JSONArray>,
 
         try {
             for (int x = 0; x <1; x++) {
-                for (int i = 0; i < response.length(); i++) {
+                for (int i = response.length()-1; i >= 0; i--) {
                     perfil.add(new Perfil(response.getJSONObject(i)));
                 }
             }
