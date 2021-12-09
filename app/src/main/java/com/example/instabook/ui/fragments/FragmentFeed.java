@@ -76,7 +76,6 @@ public class FragmentFeed extends Fragment implements View.OnClickListener{
         button = (Button) view.findViewById(R.id.buttonFeed);
         button.setOnClickListener(this);
         */
-
         presenterFeed.buscaFeed();
 
         return view;
@@ -88,7 +87,6 @@ public class FragmentFeed extends Fragment implements View.OnClickListener{
         rv.setLayoutManager(llm);
         rv.setAdapter(adapter);
     }
-
     @Override
     public void onClick(View view) {
         //presenterFeed.compartilhar();

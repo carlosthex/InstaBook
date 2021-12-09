@@ -1,9 +1,13 @@
 package com.example.instabook.adapters;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -29,7 +33,6 @@ public class PesquisaAdapter extends RecyclerView.Adapter<PesquisaAdapter.ViewHo
         }
     }
 
-
     public PesquisaAdapter(List<Pesquisa> pesquisa) {
         this.dados = pesquisa;
     }
@@ -46,9 +49,9 @@ public class PesquisaAdapter extends RecyclerView.Adapter<PesquisaAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull PesquisaAdapter.ViewHolder holder, int position) {
         Pesquisa pesquisa = dados.get(position);
-        TextView tv = holder.view.findViewById(R.id.tvPesquisaConteudo);
+        TextView tv = holder.view.findViewById(R.id.tvFeedConteudo);
         tv.setText(pesquisa.getConteudo());
-        tv = holder.view.findViewById(R.id.tvDataPostagemPesquisa);
+        tv = holder.view.findViewById(R.id.tvDataPostagem);
         String dtStart = pesquisa.getDataPostagem();
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSX");
         Locale.setDefault(new Locale("pt", "BR"));
@@ -58,9 +61,39 @@ public class PesquisaAdapter extends RecyclerView.Adapter<PesquisaAdapter.ViewHo
             tv.setText("data indisponível");
             e.printStackTrace();
         }
-        tv = holder.view.findViewById(R.id.tvAutorPostagemPesquisa);
+        tv = holder.view.findViewById(R.id.tvAutorPostagem);
         tv.setText(pesquisa.getAutorPostagem());
 
+        //Gambi
+        Button botao;
+        botao = holder.view.findViewById(R.id.buttonCompartilha);
+        botao.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                TextView autor = holder.view.findViewById(R.id.tvAutorPostagem);
+                TextView data = holder.view.findViewById(R.id.tvDataPostagem);
+                TextView conteudo = holder.view.findViewById(R.id.tvFeedConteudo);
+
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+
+                String CompartilharString = autor.getText().toString()
+                        +"\n"+data.getText().toString()
+                        +"\n"+conteudo.getText().toString();
+                sendIntent.putExtra(Intent.EXTRA_TEXT, CompartilharString);
+                sendIntent.setType("text/plain");
+
+                //Gambiarra direcionada pelo próprio whatsapp
+                sendIntent.setPackage("com.whatsapp");
+
+                try{
+                    view.getContext().startActivity(sendIntent);
+                }catch (ActivityNotFoundException ex){
+                    Toast.makeText(view.getContext(), "Whatsapp Não Instalado", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
     }
 

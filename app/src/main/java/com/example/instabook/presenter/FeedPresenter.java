@@ -1,5 +1,7 @@
 package com.example.instabook.presenter;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -50,7 +52,8 @@ public class FeedPresenter implements Response.Listener<JSONArray>,
 
         Intent sendIntent = new Intent();
         sendIntent.setAction(Intent.ACTION_SEND);
-        String CompartilharString = info.getText().toString();
+        //info.getText().toString();
+        String CompartilharString = "socorro";
         sendIntent.putExtra(Intent.EXTRA_TEXT, CompartilharString);
         sendIntent.setType("text/plain");
 
@@ -64,8 +67,7 @@ public class FeedPresenter implements Response.Listener<JSONArray>,
 
         }
     }
-    */
-
+        */
 
     @Override
     public void onResponse(JSONArray response) {

@@ -5,9 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#ececec"
     android:paddingTop="3dp"
-    android:paddingBottom="3dp"
-    android:background="#ececec">
+    android:paddingBottom="1dp">
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card"
         android:layout_width="0dp"
@@ -32,7 +32,7 @@
                 android:orientation="vertical"
                 android:padding="16dp">
                 <TextView
-                    android:id="@+id/tvAutorPostagemPesquisa"
+                    android:id="@+id/tvAutorPostagem"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Autor"
@@ -40,7 +40,7 @@
                     android:textColor="#484D54"
                     android:textAppearance="?attr/textAppearanceBody2" />
                 <TextView
-                    android:id="@+id/tvDataPostagemPesquisa"
+                    android:id="@+id/tvDataPostagem"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Data"
@@ -48,13 +48,18 @@
                     android:textColor="#484D54"
                     android:textAppearance="?attr/textAppearanceBody2" />
                 <TextView
-                    android:id="@+id/tvPesquisaConteudo"
+                    android:id="@+id/tvFeedConteudo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="Texto"
                     android:textAppearance="?attr/textAppearanceBody1"
                     android:textColor="?android:attr/textColorSecondary" />
+                <Button
+                    android:id="@+id/buttonCompartilha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Button" />
             </LinearLayout>
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>

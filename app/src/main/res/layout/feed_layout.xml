@@ -55,6 +55,11 @@
                     android:text="Texto"
                     android:textAppearance="?attr/textAppearanceBody1"
                     android:textColor="?android:attr/textColorSecondary" />
+                <Button
+                    android:id="@+id/buttonCompartilha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Button" />
             </LinearLayout>
         </LinearLayout>
 
