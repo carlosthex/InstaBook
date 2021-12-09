@@ -90,7 +90,7 @@ public class PesquisaAdapter extends RecyclerView.Adapter<PesquisaAdapter.ViewHo
                 try{
                     view.getContext().startActivity(sendIntent);
                 }catch (ActivityNotFoundException ex){
-                    Toast.makeText(view.getContext(), "Whatsapp Não Instalado", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(view.getContext(), "Whatsapp não instalado", Toast.LENGTH_SHORT).show();
                 }
             }
         });

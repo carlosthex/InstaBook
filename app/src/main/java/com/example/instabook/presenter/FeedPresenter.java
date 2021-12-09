@@ -63,7 +63,7 @@ public class FeedPresenter implements Response.Listener<JSONArray>,
         try{
             tela.getActivity().startActivity(sendIntent);
         }catch (ActivityNotFoundException ex){
-            Toast.makeText(tela.getActivity(), "Whatsapp Não Instalado", Toast.LENGTH_SHORT).show();
+            Toast.makeText(tela.getActivity(), "Whatsapp não instalado", Toast.LENGTH_SHORT).show();
 
         }
     }

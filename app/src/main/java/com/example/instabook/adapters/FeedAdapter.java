@@ -80,7 +80,7 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
                 try{
                     view.getContext().startActivity(sendIntent);
                 }catch (ActivityNotFoundException ex){
-                    Toast.makeText(view.getContext(), "Whatsapp Não Instalado", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(view.getContext(), "Whatsapp não instalado", Toast.LENGTH_SHORT).show();
                 }
             }
         });
