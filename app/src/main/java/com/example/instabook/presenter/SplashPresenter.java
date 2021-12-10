@@ -23,7 +23,7 @@ public class SplashPresenter implements Response.ErrorListener{
     private SplashInstaBook tela;
     public SplashPresenter(SplashInstaBook act) {this.tela = act;}
 
-    public void autenticarUsuarioStrig(String email, String senha) {
+    public void autenticarUsuarioString(String email, String senha) {
         RequestQueue queue = Volley.newRequestQueue(tela.getApplicationContext());
 
         JSONObject postData = new JSONObject();

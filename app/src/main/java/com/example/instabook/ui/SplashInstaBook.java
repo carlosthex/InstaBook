@@ -27,7 +27,7 @@ public class SplashInstaBook extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                splashPresenter.autenticarUsuarioStrig(prefEmail, prefSenha);
+                splashPresenter.autenticarUsuarioString(prefEmail, prefSenha);
             }
         }, 2000);
     }

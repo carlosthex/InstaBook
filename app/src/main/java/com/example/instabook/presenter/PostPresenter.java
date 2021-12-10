@@ -62,13 +62,12 @@ public class PostPresenter implements Response.ErrorListener {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.d("tag",postData.toString());
         JsonObjectRequest requisicao = new JsonObjectRequest(Request.Method.POST,
                 "http://ec2-18-116-202-134.us-east-2.compute.amazonaws.com:7777/postagem/post", postData,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        Toast.makeText(tela.getActivity().getApplicationContext(), "Postagem realizada com sucesso"+ postagemString, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(tela.getActivity().getApplicationContext(), "Postagem realizada com sucesso", Toast.LENGTH_SHORT).show();
                         Intent bottomNav = new Intent(tela.getActivity().getApplicationContext(), BottomNavigation.class);
                         tela.startActivity(bottomNav);
                     }
