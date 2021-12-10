@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
 import com.example.instabook.R;
 import com.example.instabook.presenter.CadastroPresenter;
 import com.google.android.material.textfield.TextInputLayout;
@@ -33,3 +34,4 @@ public class TelaCadastro extends AppCompatActivity  {
         });
     }
 }
+

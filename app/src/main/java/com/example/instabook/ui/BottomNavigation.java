@@ -31,7 +31,6 @@ public class BottomNavigation extends AppCompatActivity {
                     return true;
                 }
                 if (item.getItemId() == R.id.fragmentPesquisa) {
-                    //nhc.navigate(R.id.fragmentTwo);
                     nc.navigate(R.id.fragmentPesquisa);
                     return true;
                 }
